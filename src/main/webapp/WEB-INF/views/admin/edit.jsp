@@ -18,7 +18,7 @@
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
                     <div class="col-md-4">
-                        <img src="/resources/img/iphone.jpg" class="img-responsive">
+                        <img src="${product.images[0].url}" class="img-responsive">
                     </div>
                     <div class="col-md-8">
                         <div class="col-xs-6 row">
@@ -43,6 +43,7 @@
                                     <label for="sel1">Select category</label>
                                     <select id="sel1" class="form-control" name="categoryId">
                                         <option selected> ${product.category.title}</option>
+                                        <option selected value="${product.category.id}">${product.category.title}</option>
                                         <c:forEach items="${categories}" var="category">
                                             <option value="${category.id}">${category.title}</option>
                                         </c:forEach>
@@ -58,7 +59,6 @@
                                     <a href="/product/${product.id}/delete" class="btn btn-danger btn-lg">
                                         <span class="fa fa-trash-o"></span> Delete
                                     </a>
-
                                 </div>
                             </form:form>
                         </div>

@@ -26,9 +26,9 @@ public class Product {
 
     private Double price;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_image", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "image_id") })
     private List<Image> images;
-
 
     @ManyToOne
     @JoinColumn(name = "category_id")

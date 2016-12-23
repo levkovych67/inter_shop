@@ -53,10 +53,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     @Override
     public Product saveProductDto(ProductDto productDto, MultipartFile image) throws IOException {
         Image dbImage = new Image();
-
-
+        List<Image> list = new ArrayList<>();
         if (image.getSize() == 0) {
-            dbImage.setUrl("http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif");
+            dbImage.setUrl("http://placehold.it/300x300");
         } else {
             File convertedImage = new File(image.getOriginalFilename());
             image.transferTo(convertedImage);
@@ -68,9 +67,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         product.setDescription(productDto.getDescription());
         product.setTitle(productDto.getTitle());
         product.setPrice(productDto.getPrice());
+        list.add(dbImage);
+        product.setImages(list);
         productDao.create(product);
-        dbImage.setProduct(product);
-        imageService.create(dbImage);
         return product;
     }
 
