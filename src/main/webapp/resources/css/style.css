@@ -1,0 +1,140 @@
+html, body {
+    background-color: #e0e0e0;
+    height: 100%;
+}
+.base {
+    background-color: #337ab7;
+}
+
+.header-name {
+    color: #fff;
+    font: normal 30px Cookie, Arial, Helvetica, sans-serif;
+}
+.header-name:hover{
+    color:#e0e0e0;
+}
+.nav ul {
+    font-size: 18px;
+    list-style: none;
+    background-color: #337ab7;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s;
+}
+.nav a:hover {
+    background-color: white;
+    color: #337ab7;
+}
+.nav li {
+    font: normal 30px Cookie, Arial, Helvetica;
+    width: 120px;
+    border-bottom: none;
+    height: auto;
+
+}
+.nav li, input {
+    display: inline-block;
+    margin-right: -4px;
+}
+.stylefont {
+
+    font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+
+body::-webkit-scrollbar-thumb {
+    background-color: #337ab7 ;
+}
+
+a {
+    color: black;
+}
+.white-font{
+    color:white;
+}
+a:hover {
+    color:grey;
+    text-decoration: none;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto  ; /* the bottom margin is the negative value of the footer's height */
+}
+
+.white {
+    background-color: white;
+}
+.panel.panel--styled {
+    background: #F4F2F3;
+}
+.panelTop {
+    padding: 30px;
+}
+
+.panelBottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 20px;
+}
+.btn-add-to-cart {
+    background: #5cb85c;
+    color: #fff;
+}
+span.itemPrice {
+    font-size: 24px;
+
+}
+
+/*Panel tabs*/
+.panel-tabs {
+    position: relative;
+    bottom: 30px;
+    clear:both;
+    border-bottom: 1px solid transparent;
+}
+
+.panel-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+.panel-tabs > li > a {
+    margin-right: 2px;
+    margin-top: 4px;
+    line-height: .85;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: #ffffff;
+}
+
+.panel-tabs > li > a:hover {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.panel-tabs > li.active > a,
+.panel-tabs > li.active > a:hover,
+.panel-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(255,255,255, .23);
+    border-bottom-color: transparent;
+}
+.default-font-nav-tab{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+}
