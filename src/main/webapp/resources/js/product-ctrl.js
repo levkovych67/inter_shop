@@ -18,8 +18,4 @@ angular.module('myApp.controllers').controller('ProductCtrl', ['$scope', '$locat
         sendComment();
     };
 
-    $scope.delete = function () {
-        console.log($scope.id)
-    };
-
 }]);

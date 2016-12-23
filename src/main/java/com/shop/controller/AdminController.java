@@ -5,9 +5,7 @@ import com.shop.entity.User;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +18,7 @@ public class AdminController {
     private UserService userService;
 
     @RequestMapping("/users")
-    public String adminPanel(){
+    public String usersPanel(){
         return "admin/users";
     }
 
@@ -31,7 +29,16 @@ public class AdminController {
         return userService.getUsers();
     }
 
+    @RequestMapping("/orders")
+    public String orderPanel(){
+        return "admin/orders";
+    }
 
+    @RequestMapping(value = "/enable-disable-user/{id}", method = RequestMethod.GET)
+    public String disableUser(@PathVariable Long id) {
+        userService.disableOrEnable(id);
+        return "redirect:/admin/users";
+    }
 
 
 }

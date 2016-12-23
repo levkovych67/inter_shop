@@ -51,10 +51,10 @@
                             <sec:authorize access="isAuthenticated()">
                                 <sec:authorize access="hasRole('ADMIN')">
                                     <ul>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin">Settings</a></li>
+                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin/orders/">Orders</a></li>
+                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin/users/">Users</a></li>
                                         <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/product/create">Create Lot</a></li>
                                         <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/logout">Logout </a></li>
-
                                     </ul>
 
 

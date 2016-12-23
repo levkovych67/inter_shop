@@ -35,4 +35,18 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return users;
 
     }
+
+    @Override
+    public void disableOrEnable(Long id) {
+        User user = userDao.findById(id);
+        if (user.getActive()) {
+            user.setActive(Boolean.FALSE);
+            userDao.update(user);
+        } else {
+            user.setActive(Boolean.TRUE);
+            userDao.update(user);
+        }
+    }
+
+
 }

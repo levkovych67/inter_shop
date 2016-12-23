@@ -10,7 +10,6 @@
             <div class="col-md-2 col-xs-6">
                 <div class="thumbnail text-center">
                     <a href="/product/${product.id}">
-
                         <img src="${product.images[0].url}" class="imkek img-responsive">
                         <p>${product.title}</p>
                         <span class="stylefont ">${product.price}$</span>
@@ -22,6 +21,7 @@
                     </div>
                 </div>
             </div>
+
         </c:forEach>
 
     </div>
