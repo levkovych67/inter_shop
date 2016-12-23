@@ -9,7 +9,7 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container-fluid base-light  content">
     <jsp:include page="../fragments/sidebar.jsp"/>
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div class="panel-primary   ">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -18,8 +18,7 @@
             </div>
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
-
-                    <div class="col-xs-6 row">
+                    <div class=" container  ">
                         <spring:url value="/product/create" var="formUrl"/>
                         <form:form modelAttribute="product" action="${formUrl }" method="post" enctype="multipart/form-data">
                             <div class="form-group">
@@ -44,7 +43,7 @@
                                 </form:select>
                             </div>
                             <label class="btn btn-default btn-file">
-                                Browse <input type="file" name="image" style="display: block;">
+                                Image <input type="file" name="image" style="display: block;">
                             </label>
                             <button type="submit" class="btn btn-lg btn-add-to-cart text-center"><span
                                     class="fa fa-check"></span> Submit
@@ -52,12 +51,9 @@
                             <a href="/" class="btn btn-danger btn-lg  text-center"><span
                                     class="fa fa-times"></span> Cancel
                             </a>
-
                         </form:form>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

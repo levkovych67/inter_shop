@@ -50,7 +50,8 @@
                             </sec:authorize>
                             <sec:authorize access="isAuthenticated()">
                                 <sec:authorize access="hasRole('ADMIN')">
-                                    <li class=""><a href="/admin"><i class="fa fa-cog "></i> </a></li>
+                                    <li class="default-font-nav-tab"><a href="/admin">settings</a></li>
+                                    <li class=""><a href="/product/create">add lot</a></li>
                                     <li class="about"><a href="/logout"><i class="fa fa-sign-out  "></i></a></li>
                                 </sec:authorize>
                             </sec:authorize>
