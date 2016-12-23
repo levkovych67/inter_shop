@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class ImageServiceImpl extends BaseDaoImpl<Image> implements ImageService {
+public class ImageServiceImpl extends BaseServiceImpl<Image> implements ImageService {
 
 
     @Autowired

@@ -75,6 +75,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public Product saveProduct(Product product, Long categoryId) {
+        Product deprecatedProduct = productDao.findById(product.getId());
+        product.setImages(deprecatedProduct.getImages());
+        product.setComments(deprecatedProduct.getComments());
         product.setCategory(categoryDao.findById(categoryId));
         productDao.update(product);
         return product;
