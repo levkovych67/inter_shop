@@ -1,6 +1,7 @@
 package com.shop.service;
 
 import com.shop.dto.ProductDto;
+import com.shop.entity.Image;
 import com.shop.entity.Product;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,8 @@ public interface ProductService extends BaseService<Product> {
 
     Product saveProductDto(ProductDto productDto, MultipartFile image) throws IOException;
 
-    Product saveProduct(Product product,Long categoryId);
+    Product saveProduct(Product product,Long categoryId ,MultipartFile file) throws IOException;
+
+    public List<Image> transformImageToList(MultipartFile image) throws IOException;
 
 }

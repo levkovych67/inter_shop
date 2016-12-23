@@ -95,8 +95,9 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
-    public String editProduct(Product product, @RequestParam Long categoryId) {
-        productService.saveProduct(product, categoryId);
+    public String editProduct(Product product, @RequestParam Long categoryId, MultipartFile file) throws IOException {
+
+        productService.saveProduct(product, categoryId, file);
         return "redirect:/product/{id}";
     }
 

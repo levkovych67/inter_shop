@@ -23,7 +23,7 @@
                     <div class="col-md-8">
                         <div class="col-xs-6 row">
                             <spring:url value="/product/${id}/edit" var="formUrl"/>
-                            <form:form modelAttribute="product" action="${formUrl }" method="post">
+                            <form:form modelAttribute="product" action="${formUrl }" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Title</label>
                                     <form:input id="title"
@@ -49,6 +49,7 @@
                                         </c:forEach>
                                     </select>
                                 </div>
+                                <input type="file" name="file">
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-lg btn-add-to-cart"><span
                                             class="fa fa-check"></span> Submit

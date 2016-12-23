@@ -52,36 +52,48 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public Product saveProductDto(ProductDto productDto, MultipartFile image) throws IOException {
-        Image dbImage = new Image();
-        List<Image> list = new ArrayList<>();
-        if (image.getSize() == 0) {
-            dbImage.setUrl("http://placehold.it/300x300");
-        } else {
-            File convertedImage = new File(image.getOriginalFilename());
-            image.transferTo(convertedImage);
-            dbImage.setUrl(imageService.uploadFile(convertedImage));
-            convertedImage.delete();
-        }
+        List<Image> list = transformImageToList(image);
         Product product = new Product();
         product.setCategory(categoryDao.findById(productDto.getCategoryId()));
         product.setDescription(productDto.getDescription());
         product.setTitle(productDto.getTitle());
         product.setPrice(productDto.getPrice());
-        list.add(dbImage);
         product.setImages(list);
         productDao.create(product);
         return product;
     }
 
     @Override
-    public Product saveProduct(Product product, Long categoryId) {
+    public Product saveProduct(Product product, Long categoryId, MultipartFile file) throws IOException {
         Product deprecatedProduct = productDao.findById(product.getId());
-        product.setImages(deprecatedProduct.getImages());
+        if(file.getSize()!= 0){
+            List<Image> list = transformImageToList(file);
+            product.setImages(list);
+        } else {
+            product.setImages(deprecatedProduct.getImages());
+        }
         product.setComments(deprecatedProduct.getComments());
         product.setCategory(categoryDao.findById(categoryId));
         productDao.update(product);
         return product;
     }
 
+    @Override
+    public List<Image> transformImageToList(MultipartFile image) throws IOException {
+        Image dbImage = new Image();
+        List<Image> list = new ArrayList<>();
+        if (image.getSize() == 0) {
+            dbImage.setUrl("http://placehold.it/300x300");
+            list.add(dbImage);
+            return list;
+        } else {
+            File convertedImage = new File(image.getOriginalFilename());
+            image.transferTo(convertedImage);
+            dbImage.setUrl(imageService.uploadFile(convertedImage));
+            convertedImage.delete();
+            list.add(dbImage);
+            return list;
+        }
+    }
 
 }
