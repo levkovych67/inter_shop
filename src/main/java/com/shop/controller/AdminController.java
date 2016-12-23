@@ -19,18 +19,19 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("")
+    @RequestMapping("/users")
     public String adminPanel(){
-        return "admin/admin";
+        return "admin/users";
     }
 
-
-    @RequestMapping("/users")
+    @RequestMapping("/users.json")
     public @ResponseBody
     List<User> getUsers(){
 
         return userService.getUsers();
     }
+
+
 
 
 }
