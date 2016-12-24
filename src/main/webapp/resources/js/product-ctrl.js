@@ -9,7 +9,7 @@ angular.module('myApp.controllers').controller('ProductCtrl', ['$scope', '$locat
     }
 
     var sendComment = function () {
-        var comment = {'userName': 'danko', 'content': $scope.comment};
+        var comment = {'content': $scope.comment};
         $http.post(url, comment).then(function () {
             getAllComments();
         })

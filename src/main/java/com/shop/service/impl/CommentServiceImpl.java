@@ -33,9 +33,9 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
     }
 
     @Override
-    public void createComment(Long productId, String content) {
+    public void createComment(Long productId, String content,String userEmail) {
         Product product = productService.findById(productId);
-        User user = userDao.findById(1L);
+        User user = userDao.findUserByEmail(userEmail);
         Comment comment = new Comment(user,content);
         List<Comment> comments = product.getComments();
         comments.add(comment);

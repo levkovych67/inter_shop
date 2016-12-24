@@ -61,8 +61,8 @@ public class ProductController {
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST, consumes = "application/json")
     public
     @ResponseBody
-    CommentDto createComment(@RequestBody CommentDto commentDto, @PathVariable Long id) {
-        commentService.createComment(id, commentDto.getContent());
+    CommentDto createComment(@RequestBody CommentDto commentDto, @PathVariable Long id,Principal principal) {
+        commentService.createComment(id, commentDto.getContent(),principal.getName());
         return commentDto;
     }
 

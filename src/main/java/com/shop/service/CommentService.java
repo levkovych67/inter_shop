@@ -10,7 +10,7 @@ public interface CommentService extends BaseService<Comment> {
 
     List<CommentDto> getCommentsByProductId(Long id);
 
-    void createComment(Long productId,String content);
+    void createComment(Long productId,String content,String userEmail);
 
 
 }
