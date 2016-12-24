@@ -102,4 +102,9 @@ public class ProductController {
     }
 
 
+    @RequestMapping(value = "/get-by-price", method = RequestMethod.POST)
+    public String getByPrice(Double startPrice, Double endPrice, Model model) {
+        model.addAttribute("products", productService.getProductsByPrice(startPrice, endPrice));
+        return "index";
+    }
 }

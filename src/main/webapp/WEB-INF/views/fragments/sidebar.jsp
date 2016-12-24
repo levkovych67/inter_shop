@@ -18,16 +18,16 @@
                 <a ng-repeat="category in categories" ng-href="/category/{{category.id}}" ng-include="'tree_view'" >
                 </a>
             </ul>
-            <br>
-            <div class="form-group">
+
+            <form class="form-group col-xs-12" method="POST" action="/product/get-by-price">
                 <p class="text-center">Search by Price</p>
                 <div class="input-group">
-                    <input type="text" placeholder="from" class="form-control">
-                    <input type="text" placeholder="to" class="form-control">
-                    <span class="input-group-addon "><a href="google" class="fa fa-search "></a> </span>
-
+                    <input type="number"   name="startPrice" placeholder="start Price" class="form-control">
+                    <input type="number" name="endPrice"  placeholder="end Price" class="form-control">
                 </div>
-            </div>
+                <button type="submit" class="btn navbar-btn btn-block">Search</button>
+                <a href="/" class="btn btn-primary btn-block">Show All</a>
+            </form>
         </div>
 
     </div>

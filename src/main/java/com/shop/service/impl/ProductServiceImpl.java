@@ -13,6 +13,7 @@ import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -41,7 +42,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     }
 
     @Override
-    public List<Product> getProductsByPrice(Double startPrice, Double endPrice) {
+    public List<Product> getProductsByPrice(@RequestParam Double startPrice,@RequestParam Double endPrice) {
         return productDao.getProductsWithPriceFromTo(startPrice, endPrice);
     }
 
