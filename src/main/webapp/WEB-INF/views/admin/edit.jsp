@@ -77,8 +77,8 @@
 <br>
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
-<script src="/resources/js/upload.js"></script>
-<script src="/resources/js/edit-product.js"></script>
+<script src="/resources/js/upload-module.js"></script>
+<script src="/resources/js/create-edit-product-ctrl.js"></script>
 </body>
 
 </html>

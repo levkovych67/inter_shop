@@ -15,18 +15,15 @@
         </div>
         <div class="white panel-body">
             <ul class="row">
-                <li ng-repeat="category in categories" ng-include="'tree_view'">
-                </li>
+                <a ng-repeat="category in categories" ng-href="/category/{{category.id}}" ng-include="'tree_view'" >
+                </a>
             </ul>
             <br>
             <div class="form-group">
                 <p class="text-center">Search by Price</p>
                 <div class="input-group">
-                    <input type="text" placeholder="from" class="form-control"
-                           aria-label="Amount (to the nearest dollar)">
-
-                    <input type="text" placeholder="to" class="form-control"
-                           aria-label="Amount (to the nearest dollar)">
+                    <input type="text" placeholder="from" class="form-control">
+                    <input type="text" placeholder="to" class="form-control">
                     <span class="input-group-addon "><a href="google" class="fa fa-search "></a> </span>
 
                 </div>

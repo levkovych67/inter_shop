@@ -26,11 +26,17 @@ public class Category {
     private String title;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Product> products;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "category_subcategory", joinColumns = {@JoinColumn(name = "category_id")}, inverseJoinColumns = {@JoinColumn(name = "subcategory_id")})
     private List<Category> subcategories;
+
+    public List<Product> getProducts() {
+        List<Product> list = this.products;
+        this.getSubcategories().forEach(category -> category.getProducts().forEach(list::add));
+        return list;
+    }
 
 }

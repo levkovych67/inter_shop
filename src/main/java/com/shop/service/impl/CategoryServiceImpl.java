@@ -29,7 +29,8 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
     @Override
     public List<Product> getProductsByCategory(Long id) {
-        return   categoryDao.findById(id).getProducts();
+        Category category = categoryDao.findById(id);
+        return   category.getProducts();
     }
 
 
