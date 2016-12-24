@@ -18,5 +18,7 @@ public interface UserService extends BaseService<User> {
 
     void disableOrEnable(Long in);
 
+    void registerNewUser(User user);
+
 
 }

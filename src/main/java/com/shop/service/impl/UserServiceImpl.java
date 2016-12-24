@@ -48,5 +48,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         }
     }
 
+    @Override
+    public void registerNewUser(User user) {
+        user.setRole(Role.USER);
+        user.setActive(Boolean.TRUE);
+        userDao.create(user);
+    }
+
 
 }
