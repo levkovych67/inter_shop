@@ -8,17 +8,16 @@ angular.module('myApp.controllers').controller('AdminUsrListCtrl', ['$scope', '$
             $scope.users = response.data;
         });
     }
-
     $scope.disableOrEnable = function (user) {
         $http.get('/admin/enable-disable-user/' + user.id).then(function () {
             getUsers();
         })
     };
     $scope.createNewUser = function () {
-        $http.post('/user/sign-in/',$scope.user);
-        getUsers();
-        console.log( $scope.users)
-    }
+        $http.post('/user/sign-in', $scope.user).then(function (response) {
+            getUsers()
+        });
+    };
 
 
 }]);

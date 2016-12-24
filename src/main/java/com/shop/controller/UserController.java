@@ -27,8 +27,9 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/sign-in/",method = RequestMethod.POST)
-    public void registerNewUser(@RequestBody  User user){
+    @RequestMapping(value = "/sign-in",method = RequestMethod.POST)
+    public @ResponseBody User registerNewUser(@RequestBody  User user){
         userService.registerNewUser(user);
+        return user;
     }
 }

@@ -6,7 +6,7 @@
 
 <jsp:include page="../fragments/header.jsp"/>
 <br>
-<div class="container " ng-controller="AdminUsrListCtrl">
+<div class="container " ng-controller="AdminUsrListCtrl as ctrl">
     <div class="panel-primary   ">
         <div class="panel-heading">
             <h3 class="panel-title">
