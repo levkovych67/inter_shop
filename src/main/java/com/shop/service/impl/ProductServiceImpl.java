@@ -87,11 +87,8 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
             list.add(dbImage);
             return list;
         } else {
-            File convertedImage = new File(image.getOriginalFilename());
-            image.transferTo(convertedImage);
-            dbImage.setUrl(imageService.uploadFile(convertedImage));
-            convertedImage.delete();
-            list.add(dbImage);
+             dbImage.setUrl(imageService.uploadFile(image));
+             list.add(dbImage);
             return list;
         }
     }

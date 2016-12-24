@@ -9,6 +9,7 @@ import com.shop.service.BaseService;
 import com.shop.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -34,11 +35,12 @@ public class ImageServiceImpl extends BaseServiceImpl<Image> implements ImageSer
 
     }
 
-    public String uploadFile(File file) throws IOException {
-        BufferedImage img = ImageIO.read(file);
+    public String uploadFile(MultipartFile file) throws IOException {
+        File convertedImage = new File(file.getOriginalFilename());
+        file.transferTo(convertedImage);
         Cloudinary cloudinary = new Cloudinary(configuration());
-        Map uploadResult = cloudinary.uploader().upload(file, new HashMap());
-        System.out.print(uploadResult.get("secure_url"));
+        Map uploadResult = cloudinary.uploader().upload(convertedImage, new HashMap());
+        convertedImage.delete();
         return (String) uploadResult.get("secure_url");
     }
 
