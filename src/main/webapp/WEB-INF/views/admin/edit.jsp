@@ -17,7 +17,7 @@
             </div>
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <img ng-src="{{imageSrc}}" src="${product.images[0].url}" class="img-responsive">
                     </div>
                     <div class="col-md-8">
