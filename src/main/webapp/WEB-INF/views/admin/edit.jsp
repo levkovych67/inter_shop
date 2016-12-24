@@ -8,7 +8,7 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container-fluid base-light  content">
     <jsp:include page="../fragments/sidebar.jsp"/>
-    <div class="col-md-10" ng-controller="ProductCtrl">
+    <div class="col-md-10"  ng-controller="EditCtrl">
         <div class="panel-primary   ">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -18,12 +18,13 @@
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
                     <div class="col-md-4">
-                        <img src="${product.images[0].url}" class="img-responsive">
+                        <img ng-src="{{imageSrc}}" src="${product.images[0].url}" class="img-responsive">
                     </div>
                     <div class="col-md-8">
                         <div class="col-xs-6 row">
                             <spring:url value="/product/${id}/edit" var="formUrl"/>
-                            <form:form modelAttribute="product" action="${formUrl }" method="post" enctype="multipart/form-data">
+                            <form:form modelAttribute="product" action="${formUrl }" method="post"
+                                       enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Title</label>
                                     <form:input id="title"
@@ -49,7 +50,10 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-                                <input type="file" name="file">
+                                <label class="btn btn-default btn-file">
+                                    Image <input type="file" multiple accept='image/*' ng-file-select="onFileSelect($files)" name="file" style="display: block;">
+                                </label>
+                                <br><br>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-lg btn-add-to-cart"><span
                                             class="fa fa-check"></span> Submit
@@ -73,7 +77,8 @@
 <br>
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
-<script src="/resources/js/product-ctrl.js"></script>
+<script src="/resources/js/upload.js"></script>
+<script src="/resources/js/edit-product.js"></script>
 </body>
 
 </html>
