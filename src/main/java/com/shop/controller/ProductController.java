@@ -8,17 +8,10 @@ import com.shop.service.CategoryService;
 import com.shop.service.CommentService;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.imageio.ImageIO;
-import javax.validation.constraints.Null;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -96,7 +89,6 @@ public class ProductController {
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
     public String editProduct(Product product, @RequestParam Long categoryId, MultipartFile file) throws IOException {
-
         productService.saveProduct(product, categoryId, file);
         return "redirect:/product/{id}";
     }
