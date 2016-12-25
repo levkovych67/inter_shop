@@ -138,3 +138,6 @@ span.itemPrice {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
 }
+.btn-square{
+    border-radius: 0;
+}

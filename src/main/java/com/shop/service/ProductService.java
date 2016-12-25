@@ -22,4 +22,5 @@ public interface ProductService extends BaseService<Product> {
 
     public List<Image> transformImageToList(MultipartFile image) throws IOException;
 
+    List<Product> getPaginatedProducts(Integer pageSize,Integer pageNumber);
 }

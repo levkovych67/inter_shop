@@ -191,8 +191,8 @@ INSERT INTO inter_shop.image (url) VALUES ('http://stylus.ua/thumbs/320x320/89/8
 INSERT INTO inter_shop.image (url) VALUES ('http://www.qp-apple.ru/pic/pre!!!ipad-2-wi-fi-3g-16-gb-white-1.jpg');
 INSERT INTO inter_shop.image (url) VALUES ('http://lowendmac.com/wp-content/uploads/ipad-air.jpg');
 INSERT INTO inter_shop.image (url) VALUES ('http://stylus.ua/thumbs/320x320/99/d2/431254.jpeg');
-INSERT INTO inter_shop.image (url) VALUES ('http://i-smile.com.ua/files/product/5/145/145_s.jpg');
-INSERT INTO inter_shop.image (url) VALUES ('http://i-smile.com.ua/files/product/5/215/215_s.jpg');
+INSERT INTO inter_shop.image (url) VALUES ('http://stylus.ua/thumbs/320x320/b4/03/431220.jpeg');
+INSERT INTO inter_shop.image (url) VALUES ('http://stylus.ua/thumbs/320x320/9d/fa/447242.jpeg');
 INSERT INTO inter_shop.image (url) VALUES ('http://cdn.shopclues.com/images/thumbnails/3204/320/320/24163541444121889.jpg');
 INSERT INTO inter_shop.image (url) VALUES ('http://cdn02.shopclues.net/images/detailed/28680/1_1450346910.jpg');
 INSERT INTO inter_shop.image (url) VALUES ('http://ak1.ostkcdn.com/images/products/7494190/Kodak-PS50-Sheetfed-Scanner-afcd7ade-4149-4b1d-9599-6f53a5856406_320.jpg');

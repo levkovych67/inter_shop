@@ -41,4 +41,11 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Product where id  =  :id").setParameter("id", id).executeUpdate();
     }
+
+    @Override
+    public List<Product> getPaginatedProducts(Integer pageSize, Integer pageNumber) {
+        Integer lambda = pageSize * (pageNumber - 1);
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Product").setFirstResult(lambda).setMaxResults(pageSize).list();
+    }
 }
