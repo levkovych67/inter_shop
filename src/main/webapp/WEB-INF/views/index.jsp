@@ -29,7 +29,7 @@
                     </a>
                     <div class="  nav">
                         <ul>
-                            <a href="#">add to <i class="fa fa-shopping-cart"></i></a>
+                            <a ng-click="addToCart(product.id)" href="#">add to <i class="fa fa-shopping-cart"></i></a>
                         </ul>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
 <jsp:include page="../views/fragments/footer.jsp"/>
 <jsp:include page="fragments/scripts.jsp"/>
-<script src="/resources/js/pagination-ctrl.js"></script>
+<script src="/resources/js/product-pagination-ctrl.js"></script>
 
 </body>
 

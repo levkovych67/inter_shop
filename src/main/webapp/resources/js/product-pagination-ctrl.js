@@ -29,6 +29,10 @@ angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location
         getProducts(pageSize, 1);
         $scope.pageNumber = 1;
     };
-    console.log($scope.pageNumber)
+    $scope.addToCart = function (id) {
+        $http.get('/user/add-to-cart/'+id).then(function (response) {
+            console.log(response)
+        });
 
+    }
 }]);

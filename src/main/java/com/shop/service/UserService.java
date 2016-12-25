@@ -20,5 +20,5 @@ public interface UserService extends BaseService<User> {
 
     void registerNewUser(User user);
 
-
+    User addProductToCart(Long productId,String userEmail);
 }

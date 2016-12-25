@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/user/")
 public class UserController {
@@ -32,4 +34,11 @@ public class UserController {
         userService.registerNewUser(user);
         return user;
     }
+
+    @RequestMapping(value = "/add-to-cart/{productId}",method = RequestMethod.GET)
+    public void addToCart(@PathVariable Long productId,Principal principal){
+            userService.addProductToCart(productId,principal.getName());
+    }
+
+
 }

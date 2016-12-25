@@ -1,8 +1,10 @@
 package com.shop.service.impl;
 
 import com.shop.dao.UserDao;
+import com.shop.entity.Product;
 import com.shop.entity.Role;
 import com.shop.entity.User;
+import com.shop.service.ProductService;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Autowired
     private UserDao userDao;
 
+
+    @Autowired
+    private ProductService productService;
 
     @Override
     public User findUserByEmail(String email) {
@@ -53,6 +58,16 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         user.setRole(Role.USER);
         user.setActive(Boolean.TRUE);
         userDao.create(user);
+    }
+
+    @Override
+    public User addProductToCart(Long productId, String userEmail) {
+        User user =userDao.findUserByEmail(userEmail);
+        List<Product> usersProducts = user.getProducts();
+        usersProducts.add(productService.findById(productId));
+        user.setProducts(usersProducts);
+        userDao.update(user);
+        return user;
     }
 
 

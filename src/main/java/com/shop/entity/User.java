@@ -42,7 +42,7 @@ public class User {
     private Address address;
 
     @JsonIgnore
-    @OneToMany
+    @ManyToMany
     @JoinTable(name = "user_product", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private List<Product> products;
 
