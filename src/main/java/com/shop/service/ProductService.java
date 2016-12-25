@@ -20,7 +20,9 @@ public interface ProductService extends BaseService<Product> {
 
     Product saveProduct(Product product,Long categoryId ,MultipartFile file) throws IOException;
 
-    public List<Image> transformImageToList(MultipartFile image) throws IOException;
+    List<Image> transformImageToList(MultipartFile image) throws IOException;
 
     List<Product> getPaginatedProducts(Integer pageSize,Integer pageNumber);
+
+    List<Product> getPaginatedProductsByCategory(Long categoryId,Integer pageSize,Integer pageNumber);
 }

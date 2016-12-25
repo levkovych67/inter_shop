@@ -1,6 +1,8 @@
 angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
 
-    var url = '/all-paginated/';
+    var url =$location.absUrl()+'/';
+
+console.log($location.absUrl());
     $scope.pageSize = '18';
     $scope.pageNumber = 1;
     var getProducts = function (pageSize, pageNumber) {
@@ -18,6 +20,7 @@ angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location
     getProducts($scope.pageSize, $scope.pageNumber);
     $scope.nextPage = function () {
         getProducts($scope.pageSize, ++$scope.pageNumber);
+        console.log($location.url());
     };
     $scope.prevPage = function () {
         getProducts($scope.pageSize, --$scope.pageNumber);

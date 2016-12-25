@@ -99,4 +99,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         return productDao.getPaginatedProducts(pageSize,pageNumber);
     }
 
+    @Override
+    public List<Product> getPaginatedProductsByCategory(Long categoryId, Integer pageSize, Integer pageNumber) {
+        return productDao.getPaginatedProductsByCategory(categoryId,pageSize,pageNumber);
+    }
+
 }

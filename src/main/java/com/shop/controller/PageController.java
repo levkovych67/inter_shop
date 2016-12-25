@@ -19,9 +19,15 @@ public class PageController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/all-paginated/{pageSize}/{pageNumber}")
+    @RequestMapping("/{pageSize}/{pageNumber}")
     public @ResponseBody
     List<Product> getProductsPerPage(@PathVariable Integer pageSize, @PathVariable Integer pageNumber){
         return productService.getPaginatedProducts(pageSize,pageNumber);
+    }
+
+    @RequestMapping("/category/{id}/{pageSize}/{pageNumber}")
+    public @ResponseBody
+    List<Product> getProductsPaginatedByCategory(@PathVariable Long id,@PathVariable Integer pageSize, @PathVariable Integer pageNumber){
+        return productService.getPaginatedProductsByCategory(id,pageSize,pageNumber);
     }
 }
