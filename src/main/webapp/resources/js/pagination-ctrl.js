@@ -2,7 +2,7 @@ angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location
 
     var url =$location.absUrl()+'/';
 
-console.log($location.absUrl());
+
     $scope.pageSize = '18';
     $scope.pageNumber = 1;
     var getProducts = function (pageSize, pageNumber) {
@@ -20,15 +20,15 @@ console.log($location.absUrl());
     getProducts($scope.pageSize, $scope.pageNumber);
     $scope.nextPage = function () {
         getProducts($scope.pageSize, ++$scope.pageNumber);
-        console.log($location.url());
     };
     $scope.prevPage = function () {
         getProducts($scope.pageSize, --$scope.pageNumber);
+        $scope.isNextPageAvailable=false;
     };
     $scope.reloadPageSize = function (pageSize) {
         getProducts(pageSize, 1);
         $scope.pageNumber = 1;
     };
-
+    console.log($scope.pageNumber)
 
 }]);
