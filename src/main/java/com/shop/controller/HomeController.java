@@ -29,9 +29,7 @@ public class HomeController {
     ProductService productService;
 
     @RequestMapping("/")
-    public String p(Model model) {
-        List<Product> products = productService.findAll();
-        model.addAttribute("products", products);
+    public String homePage() {
         return "index";
     }
 

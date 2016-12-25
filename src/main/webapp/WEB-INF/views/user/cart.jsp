@@ -5,9 +5,9 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container ">
     <br>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" ng-controller="CartCtrl">
         <div class="panel-heading">
-            <h3 class="panel-title">Admin Panel</h3>
+            <h3 class="panel-title">Your Cart</h3>
         </div>
         <div class="panel-body ">
             <table class="table table-bordered">
@@ -19,50 +19,28 @@
                     <th class="text-center">Action</th>
                 </tr>
                 </thead>
-                <tr>
-                    <td>Iphone 1499</td>
-                    <td>14.88$</td>
+                <tr ng-repeat="product in products">
+                    <td>{{product.title}}</td>
+                    <td>{{product.price}}$</td>
                     <td>3</td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-danger btn-xs">Remove</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Iphone 1499</td>
-                    <td>14.88$</td>
-                    <td>3</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-danger btn-xs">Remove</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Iphone 1499</td>
-                    <td>14.88$</td>
-                    <td>3</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-danger btn-xs">Remove</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Iphone 1499</td>
-                    <td>14.88$</td>
-                    <td>3</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-danger btn-xs">Remove</a>
+                        <a href="#" ng-click="deleteFromCart(product.id)" class="btn btn-danger btn-xs">Remove</a>
                     </td>
                 </tr>
 
+
+
             </table>
+           <h4><span class="label label-primary pull-left">TOTAL : {{total}}$</span></h4>
             <button class="btn btn-success pull-right">Confirm Order</button>
         </div>
 
     </div>
 
 </div>
-
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
-
+<script src="/resources/js/cart-ctrl.js"></script>
 
 </body>
 

@@ -9,6 +9,7 @@ import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,6 +69,22 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         user.setProducts(usersProducts);
         userDao.update(user);
         return user;
+    }
+
+    @Override
+    public List<Product> getProductsInCart(String userEmail) {
+       return userDao.findUserByEmail(userEmail).getProducts();
+    }
+
+    @Override
+    public List<Product> deleteProductFromCart(Long productId, String userEmail) {
+        User user = userDao.findUserByEmail(userEmail);
+        List<Product> usersProducts = user.getProducts();
+        usersProducts.contains(productService.findById(productId));
+        usersProducts.remove(productService.findById(productId));
+        user.setProducts(usersProducts);
+        userDao.update(user);
+        return usersProducts;
     }
 
 
