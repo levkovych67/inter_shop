@@ -8,6 +8,7 @@ import com.shop.entity.Category;
 import com.shop.entity.Image;
 import com.shop.entity.Product;
 import com.shop.service.BaseService;
+import com.shop.service.CategoryService;
 import com.shop.service.ImageService;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     private ImageService imageService;
 
     @Autowired
-    private CategoryDao categoryDao;
+    private CategoryService categoryService;
 
     public List<Product> getProductByTitle(String title) {
         return productDao.getProductsByTitle(title);
@@ -55,7 +56,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     public Product saveProductDto(ProductDto productDto, MultipartFile image) throws IOException {
         List<Image> list = transformImageToList(image);
         Product product = new Product();
-        product.setCategory(categoryDao.findById(productDto.getCategoryId()));
+        product.setCategory(categoryService.findById(productDto.getCategoryId()));
         product.setDescription(productDto.getDescription());
         product.setTitle(productDto.getTitle());
         product.setPrice(productDto.getPrice());
@@ -74,7 +75,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
             product.setImages(deprecatedProduct.getImages());
         }
         product.setComments(deprecatedProduct.getComments());
-        product.setCategory(categoryDao.findById(categoryId));
+        product.setCategory(categoryService.findById(categoryId));
         productDao.update(product);
         return product;
     }
