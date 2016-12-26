@@ -18,6 +18,6 @@ public interface ProductDao extends BaseDao<Product> {
     void deleteById(Long id);
 
     List<Product> getPaginatedProducts(Integer pageSize,Integer pageNumber);
-    List<Product> getPaginatedProductsByCategory(Long categoryId,Integer pageSize,Integer pageNumber);
+
 
 }

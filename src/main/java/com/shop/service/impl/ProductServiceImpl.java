@@ -102,7 +102,16 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public List<Product> getPaginatedProductsByCategory(Long categoryId, Integer pageSize, Integer pageNumber) {
-        return productDao.getPaginatedProductsByCategory(categoryId,pageSize,pageNumber);
+        Category category = categoryService.findById(categoryId);
+        List<Product> products = category.getProducts();
+        Integer lambda = pageSize*(pageNumber-1);
+        if(lambda>products.size()-1){
+            return null;
+        }
+        if(lambda+pageSize>products.size()-1){
+            return products.subList(lambda,products.size());
+        }
+        return products.subList(lambda,lambda+pageSize);
     }
 
 }
