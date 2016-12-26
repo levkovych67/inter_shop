@@ -25,7 +25,7 @@
                     <input type="number" ng-init="startPrice=0" ng-model="startPrice"    placeholder="start Price" class="form-control">
                     <input type="number" ng-init="endPrice=0" ng-model="endPrice"    placeholder="end Price" class="form-control">
                 </div>
-                <a  href="/product/get-by-price/{{startPrice}}/{{endPrice}}" class="btn btn-default btn-block">Search</a>
+                <a      href="/product/get-by-price/{{startPrice}}/{{endPrice}}" class="btn btn-default btn-block">Search</a>
                 <a href="/" class="btn btn-primary btn-block">Show All</a>
             </div>
         </div>
