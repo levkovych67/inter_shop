@@ -6,6 +6,8 @@ import com.shop.entity.UserOrder;
 import com.shop.service.UserOrderService;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +51,12 @@ public class AdminController {
     public @ResponseBody
     List<UserOrder> getOrders(){
         return userOrderService.findAll();
+    }
+
+    @RequestMapping(value = "/confirm-order/{id}",method = RequestMethod.PUT)
+    public @ResponseBody
+    ResponseEntity<UserOrder> confirmUserOrder(@PathVariable("id") Long userOrderId){
+        userOrderService.confirmOrder(userOrderId);
+        return new ResponseEntity<UserOrder>(HttpStatus.OK);
     }
 }

@@ -5,5 +5,5 @@ package com.shop.service;
 
 public interface UserOrderService extends BaseService<UserOrder> {
 
-
+ UserOrder confirmOrder(Long userOrderId);
 }

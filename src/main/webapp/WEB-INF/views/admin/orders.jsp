@@ -29,22 +29,26 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="order in orders">
-                        <td>{{order.id}}</td>
-                        <td>{{order.user.firstName}} {{order.user.lastName}}</td>
-                        <td>{{order.user.phone}}</td>
-                        <td>{{order.date}}</td>
-                        <td>{{order.totalPrice | number : fractionSize}}$</td>
+                        <td><h4>{{order.id}}</h4></td>
+                        <td><h4>{{order.user.firstName}} {{order.user.lastName}}</h4></td>
+                        <td><h4>{{order.user.phone}}</h4></td>
+                        <td><h4>{{order.date}}</h4></td>
+                        <td><h4>{{order.totalPrice | number : fractionSize}}$</h4></td>
                         <td>
                             <div class="dropdown">
-                            <span class=" dropdown-toggle" data-toggle="dropdown">Products
-                                <span class="caret"></span></span>
+                            <span class=" dropdown-toggle" data-toggle="dropdown"><h4>Products<span class="caret"></span></h4>
+                                </span>
                                 <ul class="dropdown-menu">
-                                    <li><a ng-repeat="product in order.products">{{product.title}}</a></li>
+                                    <li><a ng-href="/product/{{product.id}}" ng-repeat="product in order.products">{{product.title}}</a></li>
                                 </ul>
                             </div>
                         </td>
-                        <td><span class="label label-success">{{order.status}}</span> </td>
-                        <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
+                        <td><h4><span class="label label-danger" ng-hide="{{order.status}}">WAITING</span></h4>
+                            <h4><span class="label label-info" ng-show="{{order.status}}">ACCEPTED</span></h4>
+                        </td>
+                        <td><h4><span ng-click="confirmOrder(order)" ng-hide="{{order.status}}" class="label label-success">ACCEPT ORDER</span></h4>
+                            <h4><span   ng-show="{{order.status}}" class="label label-info">ORDER CLOSED</span></h4>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

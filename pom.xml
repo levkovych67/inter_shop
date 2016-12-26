@@ -126,7 +126,14 @@
           <artifactId>spring-security-taglibs</artifactId>
           <version>4.0.4.RELEASE</version>
       </dependency>
-     </dependencies>
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+          <version>4.3.3.RELEASE</version>
+      </dependency>
+
+  </dependencies>
   <build>
     <finalName>shop</finalName>
       <plugins>

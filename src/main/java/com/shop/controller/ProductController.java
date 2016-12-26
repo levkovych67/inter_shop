@@ -8,6 +8,7 @@ import com.shop.service.CategoryService;
 import com.shop.service.CommentService;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -66,13 +67,14 @@ public class ProductController {
         return "redirect:/";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createProduct(MultipartFile image, ProductDto productDto) throws IOException {
         productService.saveProductDto(productDto, image);
 
         return "redirect:/";
     }
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String createProduct(Model model) {
         model.addAttribute("product", new ProductDto());
