@@ -36,7 +36,7 @@
 
             <button class="btn btn-success pull-right" ng-click="showConfirmation=true" ng-disabled='filteredProducts.length==0' ng-hide="showConfirmation">Confirm Order</button>
             <div class="btn-group pull-right" ng-show="showConfirmation">
-                <button class="btn btn-success  " ng-click="confirmOrder()" >Confirm</button>
+                <button class="btn btn-success  " ng-click="confirmOrder()" >Confirm ( {{total | number : fractionSize}}$ )</button>
                 <button class="btn btn-danger" ng-click="showConfirmation=false" >Cancel</button>
             </div>
         </div>
