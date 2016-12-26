@@ -5,7 +5,7 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container ">
     <br>
-    <div class="panel panel-primary" >
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Your Cart</h3>
         </div>
@@ -16,21 +16,23 @@
                     <th>Product name</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th class="text-center">Action</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="product in products">
-                        <td>{{product.title}}</td>
-                        <td>{{product.price}}$</td>
-                        <td>3</td>
-                        <td class="text-center">
-                            <a   ng-click="deleteFromCart(product.id,$index)" class="btn btn-danger btn-xs">Remove</a>
-                        </td>
-                    </tr>
+                <tr ng-repeat="product in filteredProducts">
+                    <td>{{product.title}}</td>
+                    <td>{{product.price}}$</td>
+                    <td class="text-center">
+                        <a ng-click="add(product)" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
+                       <span> {{product.quantity}} </span>
+                        <a ng-click="deleteFromCart(product,$index)" class="btn btn-danger btn-xs"><i class="fa fa-minus"></i></a>
+                    </td>
+
+                </tr>
                 </tbody>
             </table>
-           <h4><span class="label label-primary pull-left">TOTAL : {{total}}$</span></h4>
+            <h4><span class="label label-primary pull-left">TOTAL : {{total | number : fractionSize}}$ </span></h4>
             <button class="btn btn-success pull-right">Confirm Order</button>
         </div>
 
