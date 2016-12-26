@@ -63,7 +63,7 @@ public class ProductController {
     public String getProduct(@PathVariable Long id, Model model) {
         productService.deleteById(id);
         model.addAttribute("products", productService.findAll());
-        return "index";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)

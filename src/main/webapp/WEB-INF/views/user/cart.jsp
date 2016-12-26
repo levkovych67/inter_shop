@@ -5,11 +5,11 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container ">
     <br>
-    <div class="panel panel-primary" ng-controller="CartCtrl">
+    <div class="panel panel-primary" >
         <div class="panel-heading">
             <h3 class="panel-title">Your Cart</h3>
         </div>
-        <div class="panel-body ">
+        <div class="panel-body " ng-controller="CartCtrl as ctrl">
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -19,17 +19,16 @@
                     <th class="text-center">Action</th>
                 </tr>
                 </thead>
-                <tr ng-repeat="product in products">
-                    <td>{{product.title}}</td>
-                    <td>{{product.price}}$</td>
-                    <td>3</td>
-                    <td class="text-center">
-                        <a href="#" ng-click="deleteFromCart(product.id)" class="btn btn-danger btn-xs">Remove</a>
-                    </td>
-                </tr>
-
-
-
+                <tbody>
+                    <tr ng-repeat="product in products">
+                        <td>{{product.title}}</td>
+                        <td>{{product.price}}$</td>
+                        <td>3</td>
+                        <td class="text-center">
+                            <a   ng-click="deleteFromCart(product.id,$index)" class="btn btn-danger btn-xs">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
            <h4><span class="label label-primary pull-left">TOTAL : {{total}}$</span></h4>
             <button class="btn btn-success pull-right">Confirm Order</button>

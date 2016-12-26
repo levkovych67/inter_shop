@@ -4,12 +4,15 @@ import com.shop.dao.UserDao;
 import com.shop.entity.Product;
 import com.shop.entity.Role;
 import com.shop.entity.User;
+import com.shop.entity.UserOrder;
 import com.shop.service.ProductService;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -85,6 +88,21 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         user.setProducts(usersProducts);
         userDao.update(user);
         return usersProducts;
+    }
+
+    @Override
+    public void confirmOrder(String userEmail) {
+        User user = userDao.findUserByEmail(userEmail);
+        UserOrder userOrder = new UserOrder();
+        userOrder.setDate(new Date(Calendar.getInstance().getTime().getTime()));
+        userOrder.setProducts(user.getProducts());
+        userOrder.setUser(user);
+        Double total = 0d;
+        for (Product p: user.getProducts()) {
+            total = total + p.getPrice();
+        }
+        userOrder.setTotalPrice(total);
+
     }
 
 

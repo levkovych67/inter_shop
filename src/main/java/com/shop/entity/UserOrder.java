@@ -28,6 +28,6 @@ public class UserOrder {
 
     @NotNull
     @Column(name = "total_price")
-    private Long totalPrice;
+    private Double totalPrice;
 }
 

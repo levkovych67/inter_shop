@@ -26,4 +26,6 @@ public interface UserService extends BaseService<User> {
     List<Product> getProductsInCart(String userEmail);
 
     List<Product> deleteProductFromCart(Long productId, String userEmail);
+
+    void confirmOrder(String userEmail);
 }

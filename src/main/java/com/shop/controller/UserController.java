@@ -20,24 +20,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/cart", method = RequestMethod.GET)
-    public String getCart() {
-        return "user/cart";
-    }
-
-
-    @RequestMapping(value = "/cart/products", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    List<Product> getCartProducts(Principal principal) {
-
-        return userService.getProductsInCart(principal.getName());
-    }
-
-    @RequestMapping(value = "/cart/products/{productId}", method = RequestMethod.GET)
-    public void deleteProductFromUserCart(@PathVariable Long productId,Principal principal) {
-          userService.deleteProductFromCart(productId,principal.getName());
-    }
 
     @RequestMapping("/settings")
     public String getSettings() {
@@ -53,10 +35,6 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(value = "/add-to-cart/{productId}", method = RequestMethod.GET)
-    public void addToCart(@PathVariable Long productId, Principal principal) {
-        userService.addProductToCart(productId, principal.getName());
-    }
 
 
 }

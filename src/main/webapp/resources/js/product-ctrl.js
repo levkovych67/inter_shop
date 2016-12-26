@@ -8,12 +8,12 @@ angular.module('myApp.controllers').controller('ProductCtrl', ['$scope', '$locat
         });
     }
 
-    var sendComment = function () {
+    function sendComment () {
         var comment = {'content': $scope.comment};
         $http.post(url, comment).then(function () {
             getAllComments();
         })
-    };
+    }
     $scope.send = function () {
         sendComment();
     };
