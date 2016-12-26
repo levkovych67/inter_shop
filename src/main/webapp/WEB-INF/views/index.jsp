@@ -23,9 +23,11 @@
             <div class="col-md-2 col-xs-6">
                 <div class="thumbnail text-center">
                     <a href="/product/{{product.id}}">
-                        <img ng-src="{{product.images[0].url}}" class="img-responsive">
-                        <p>{{product.title}}</p>
-                        <span class="stylefont ">{{product.price}}$</span>
+                        <div class="image">
+                            <img  ng-src="{{product.images[0].url}}" class="img-responsive" alt="">
+                            <div class="text-img"><span class="prod-title">{{product.title}}</span> </div>
+                        </div>
+                        <span>{{product.price}}$</span>
                     </a>
                     <div class="  nav">
                         <ul>

@@ -2,6 +2,7 @@ html, body {
     background-color: #e0e0e0;
     height: 100%;
 }
+
 .base {
     background-color: #337ab7;
 }
@@ -10,9 +11,11 @@ html, body {
     color: #fff;
     font: normal 30px Cookie, Arial, Helvetica, sans-serif;
 }
-.header-name:hover{
-    color:#e0e0e0;
+
+.header-name:hover {
+    color: #e0e0e0;
 }
+
 .nav ul {
     font-size: 18px;
     list-style: none;
@@ -21,16 +24,19 @@ html, body {
     padding: 0;
     margin: 0;
 }
+
 .nav a {
     text-decoration: none;
     color: #fff;
     display: block;
     transition: .3s;
 }
+
 .nav a:hover {
     background-color: white;
     color: #337ab7;
 }
+
 .nav li {
     font: normal 30px Cookie, Arial, Helvetica;
     width: 120px;
@@ -38,10 +44,12 @@ html, body {
     height: auto;
 
 }
+
 .nav li, input {
     display: inline-block;
     margin-right: -4px;
 }
+
 .stylefont {
 
     font-size: 16px;
@@ -51,33 +59,36 @@ body::-webkit-scrollbar {
     width: 0.4em;
 }
 
-
 body::-webkit-scrollbar-thumb {
-    background-color: #337ab7 ;
+    background-color: #337ab7;
 }
 
 a {
     color: black;
 }
-.white-font{
-    color:white;
+
+.white-font {
+    color: white;
 }
+
 a:hover {
-    color:grey;
+    color: grey;
     text-decoration: none;
 }
 
 .wrapper {
     min-height: 100%;
-    margin: 0 auto  ; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
 }
 
 .white {
     background-color: white;
 }
+
 .panel.panel--styled {
     background: #F4F2F3;
 }
+
 .panelTop {
     padding: 30px;
 }
@@ -86,10 +97,12 @@ a:hover {
     border-top: 1px solid #e7e7e7;
     padding-top: 20px;
 }
+
 .btn-add-to-cart {
     background: #5cb85c;
     color: #fff;
 }
+
 span.itemPrice {
     font-size: 24px;
 
@@ -99,7 +112,7 @@ span.itemPrice {
 .panel-tabs {
     position: relative;
     bottom: 30px;
-    clear:both;
+    clear: both;
     border-bottom: 1px solid transparent;
 }
 
@@ -131,13 +144,38 @@ span.itemPrice {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    background-color: rgba(255,255,255, .23);
+    background-color: rgba(255, 255, 255, .23);
     border-bottom-color: transparent;
 }
-.default-font-nav-tab{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+.default-font-nav-tab {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
-.btn-square{
+
+.btn-square {
     border-radius: 0;
 }
+
+.image {
+    position: relative;
+
+    width: 100%;
+}
+
+.text-img {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+}
+
+.text-img .prod-title {
+    color: black;
+    font: 14px/45px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background:  rgba(255, 255, 255, 0.8);
+
+    padding: 4px;
+}
+
