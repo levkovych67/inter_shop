@@ -2,6 +2,8 @@ package com.shop.controller;
 
 
 import com.shop.entity.User;
+import com.shop.entity.UserOrder;
+import com.shop.service.UserOrderService;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserOrderService userOrderService;
 
     @RequestMapping("/users")
     public String usersPanel(){
@@ -40,5 +45,9 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-
+    @RequestMapping("/orders.json")
+    public @ResponseBody
+    List<UserOrder> getOrders(){
+        return userOrderService.findAll();
+    }
 }

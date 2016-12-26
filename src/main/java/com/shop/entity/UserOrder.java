@@ -1,5 +1,6 @@
 package com.shop.entity;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,5 +30,7 @@ public class UserOrder {
     @NotNull
     @Column(name = "total_price")
     private Double totalPrice;
+
+    private Boolean status;
 }
 

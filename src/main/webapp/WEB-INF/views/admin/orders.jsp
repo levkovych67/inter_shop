@@ -6,7 +6,7 @@
 
 <jsp:include page="../fragments/header.jsp"/>
 <br>
-<div class="container text-center" ng-controller="AdminCtrl as ctrl">
+<div class="container " ng-controller="AdminUsrOrderCtrl as ctrl">
     <div class="panel-primary   ">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -16,44 +16,35 @@
             <div class="span5">
                 <table class="table table-striped table-condensed">
                     <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Date registered</th>
-                        <th>Role</th>
+                    <tr class="text-center">
+                        <th>id</th>
+                        <th>User name</th>
+                        <th>Phone</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Products</th>
                         <th>Status</th>
+                        <th>Confirm</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Donna R. Folse</td>
-                        <td>2012/05/06</td>
-                        <td>Editor</td>
-                        <td><span class="label label-success">Active</span>
+                    <tr ng-repeat="order in orders">
+                        <td>{{order.id}}</td>
+                        <td>{{order.user.firstName}} {{order.user.lastName}}</td>
+                        <td>{{order.user.phone}}</td>
+                        <td>{{order.date}}</td>
+                        <td>{{order.totalPrice | number : fractionSize}}$</td>
+                        <td>
+                            <div class="dropdown">
+                            <span class=" dropdown-toggle" data-toggle="dropdown">Products
+                                <span class="caret"></span></span>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-repeat="product in order.products">{{product.title}}</a></li>
+                                </ul>
+                            </div>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Emily F. Burns</td>
-                        <td>2011/12/01</td>
-                        <td>Staff</td>
-                        <td><span class="label label-important">Banned</span></td>
-                    </tr>
-                    <tr>
-                        <td>Andrew A. Stout</td>
-                        <td>2010/08/21</td>
-                        <td>User</td>
-                        <td><span class="label">Inactive</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mary M. Bryan</td>
-                        <td>2009/04/11</td>
-                        <td>Editor</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mary A. Lewis</td>
-                        <td>2007/02/01</td>
-                        <td>Staff</td>
-                        <td><span class="label label-success">Active</span></td>
+                        <td><span class="label label-success">{{order.status}}</span> </td>
+                        <td><span class="label label-success"><i class="fa fa-check"></i></span></td>
                     </tr>
                     </tbody>
                 </table>
@@ -65,7 +56,7 @@
 
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
-<script src="/resources/js/admin-users-ctrl.js"></script>
+<script src="/resources/js/admin-orders-ctrl.js"></script>
 
 </body>
 

@@ -105,6 +105,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
             total = total + p.getPrice();
         }
         userOrder.setTotalPrice(total);
+        userOrder.setStatus(Boolean.FALSE);
         userOrderService.create(userOrder);
         user.setProducts(new ArrayList<>());
         userDao.update(user);
