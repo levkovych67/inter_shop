@@ -7,6 +7,7 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
     function getProducts() {
         $http.get(url).then(function (response) {
             $scope.products = response.data;
+            $scope.productCount = $scope.products.length;
             transfer();
             countTotal();
         });

@@ -5,11 +5,11 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container ">
     <br>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" ng-controller="CartCtrl as ctrl">
         <div class="panel-heading">
-            <h3 class="panel-title">Your Cart</h3>
+            <h3 class="panel-title">Your Cart </h3>
         </div>
-        <div class="panel-body " ng-controller="CartCtrl as ctrl">
+        <div class="panel-body " >
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -40,9 +40,7 @@
                 <button class="btn btn-danger" ng-click="showConfirmation=false" >Cancel</button>
             </div>
         </div>
-
     </div>
-
 </div>
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>

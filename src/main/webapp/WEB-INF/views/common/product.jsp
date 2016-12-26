@@ -29,10 +29,9 @@
 
                         <sec:authorize access="isAuthenticated()">
                             <sec:authorize access="hasRole('USER')">
-                                <button class="btn btn-lg btn-add-to-cart"><span
+                                <button ng-click="addToCart(${product.id})" class="btn btn-lg btn-add-to-cart"><span
                                         class="fa fa-shopping-cart"></span> Add to Cart
                                 </button>
-
                             </sec:authorize>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">

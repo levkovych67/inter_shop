@@ -17,5 +17,10 @@ angular.module('myApp.controllers').controller('ProductCtrl', ['$scope', '$locat
     $scope.send = function () {
         sendComment();
     };
+    $scope.addToCart = function (id) {
+        $http.get('/user/add-to-cart/'+id).then(function (response) {
+        });
+
+    }
 
 }]);

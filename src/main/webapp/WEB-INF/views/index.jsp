@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../views/fragments/header.jsp"/>
@@ -31,7 +32,15 @@
                     </a>
                     <div class="  nav">
                         <ul>
-                            <a ng-click="addToCart(product.id)" href="#">add to <i class="fa fa-shopping-cart"></i></a>
+                            <sec:authorize access="isAuthenticated()">
+                                <sec:authorize access="hasRole('USER')">
+
+                                    <a ng-click="addToCart(product.id)" href="#">add to <i class="fa fa-shopping-cart"></i></a>
+                                </sec:authorize>
+                            </sec:authorize>
+                            <sec:authorize access="!isAuthenticated()">
+                                <a href="/login">add to <i class="fa fa-shopping-cart"></i></a>
+                            </sec:authorize>
                         </ul>
                     </div>
                 </div>
