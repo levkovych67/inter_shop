@@ -31,7 +31,6 @@ angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location
     };
     $scope.addToCart = function (id) {
         $http.get('/user/add-to-cart/'+id).then(function (response) {
-            console.log(response)
         });
 
     }

@@ -65,4 +65,11 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
         });
         return newArr;
     }
+
+    $scope.addToCart = function (product) {
+        $http.get('/user/add-to-cart/'+product.id).then(function (response) {
+            getProducts();
+        });
+
+    }
 }]);

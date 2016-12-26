@@ -15,8 +15,7 @@
                 <tr>
                     <th>Product name</th>
                     <th>Price</th>
-                    <th>Quantity</th>
-
+                    <th class="text-center">Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,7 +23,7 @@
                     <td>{{product.title}}</td>
                     <td>{{product.price}}$</td>
                     <td class="text-center">
-                        <a ng-click="add(product)" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
+                        <a ng-click="addToCart(product)" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
                        <span> {{product.quantity}} </span>
                         <a ng-click="deleteFromCart(product,$index)" class="btn btn-danger btn-xs"><i class="fa fa-minus"></i></a>
                     </td>
