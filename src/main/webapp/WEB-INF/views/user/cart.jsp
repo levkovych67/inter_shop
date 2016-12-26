@@ -31,8 +31,14 @@
                 </tr>
                 </tbody>
             </table>
+            <h1 class="text-center" ng-show='filteredProducts.length==0' >YOUR CART IS EMPTY</h1>
             <h4><span class="label label-primary pull-left">TOTAL : {{total | number : fractionSize}}$ </span></h4>
-            <button class="btn btn-success pull-right">Confirm Order</button>
+
+            <button class="btn btn-success pull-right" ng-click="showConfirmation=true" ng-disabled='filteredProducts.length==0' ng-hide="showConfirmation">Confirm Order</button>
+            <div class="btn-group pull-right" ng-show="showConfirmation">
+                <button class="btn btn-success  " ng-click="confirmOrder()" >Confirm</button>
+                <button class="btn btn-danger" ng-click="showConfirmation=false" >Cancel</button>
+            </div>
         </div>
 
     </div>

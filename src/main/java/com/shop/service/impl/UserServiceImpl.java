@@ -6,6 +6,7 @@ import com.shop.entity.Role;
 import com.shop.entity.User;
 import com.shop.entity.UserOrder;
 import com.shop.service.ProductService;
+import com.shop.service.UserOrderService;
 import com.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private UserOrderService userOrderService;
 
     @Autowired
     private ProductService productService;
@@ -102,7 +105,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
             total = total + p.getPrice();
         }
         userOrder.setTotalPrice(total);
-
+        userOrderService.create(userOrder);
+        user.setProducts(new ArrayList<>());
+        userDao.update(user);
     }
 
 

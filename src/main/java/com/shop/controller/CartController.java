@@ -47,7 +47,7 @@ public class CartController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
+    @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     public void confirmOrder(Principal principal) {
         userService.confirmOrder(principal.getName());
     }

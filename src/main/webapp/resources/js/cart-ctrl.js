@@ -1,6 +1,7 @@
 angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
     var url = $location.absUrl() + "/products";
     $scope.total = 0;
+
     $scope.filteredProducts = [];
     getProducts();
     function getProducts() {
@@ -65,11 +66,16 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
         });
         return newArr;
     }
-
     $scope.addToCart = function (product) {
         $http.get('/user/add-to-cart/'+product.id).then(function (response) {
             getProducts();
         });
 
+    }
+
+    $scope.confirmOrder = function () {
+        $http.post('/user/confirm');
+        $scope.filteredProducts = [];
+        $scope.showConfirmation=false;
     }
 }]);

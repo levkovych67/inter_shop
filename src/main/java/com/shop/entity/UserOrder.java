@@ -19,7 +19,7 @@ public class UserOrder {
 
     private Date date;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(name = "user_order_products", joinColumns = { @JoinColumn(name = "user_order_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
     private List<Product> products;
 
