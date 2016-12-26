@@ -1,14 +1,13 @@
 package com.shop.controller;
 
 
-import com.shop.dao.ProductDao;
 import com.shop.entity.Product;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -30,4 +29,13 @@ public class PageController {
     List<Product> getProductsPaginatedByCategory(@PathVariable Long id,@PathVariable Integer pageSize, @PathVariable Integer pageNumber){
         return productService.getPaginatedProductsByCategory(id,pageSize,pageNumber);
     }
+
+
+    @RequestMapping(value = "product/get-by-price/{startPrice}/{endPrice}/{pageSize}/{pageNumber}", method = RequestMethod.GET)
+    public @ResponseBody  List<Product> getByPrice(@PathVariable Double startPrice, @PathVariable Double endPrice, @PathVariable Integer pageSize, @PathVariable Integer pageNumber) {
+        return productService.getProductsByPrice(startPrice,endPrice,pageSize,pageNumber);
+    }
+
+
+
 }

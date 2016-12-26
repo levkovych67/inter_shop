@@ -12,7 +12,7 @@ public interface ProductService extends BaseService<Product> {
 
     List<Product> getProductByTitle(String title);
 
-    List<Product> getProductsByPrice(Double startPrice,Double endPrice);
+    List<Product> getProductsByPrice(Double startPrice,Double endPrice,Integer pageSize,Integer pageNumber);
 
     void deleteById(Long id);
 

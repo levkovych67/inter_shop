@@ -21,12 +21,12 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Product> getProductsWithPriceFromTo(Double startingPrice, Double endPrice) {
+    public List<Product> getProductsWithPriceFromTo(Double startPrice, Double endPrice, Integer pageSize, Integer pageNumber) {
         Session session = sessionFactory.getCurrentSession();
+        Integer lambda = pageSize * (pageNumber - 1);
         return session.createQuery("from Product where price between :startingPrice and  :endPrice ")
-                .setParameter("startingPrice", startingPrice)
-                .setParameter("endPrice", endPrice)
-                .list();
+                .setParameter("startingPrice", startPrice)
+                .setParameter("endPrice", endPrice).setFirstResult(lambda).setMaxResults(pageSize).list();
     }
 
 

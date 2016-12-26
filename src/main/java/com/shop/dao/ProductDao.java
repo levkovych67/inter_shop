@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ProductDao extends BaseDao<Product> {
 
-    List<Product> getProductsWithPriceFromTo(Double startingPrice,Double endPrice);
+    List<Product> getProductsWithPriceFromTo(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber);
 
 
     List<Product> getProductsByTitle(String title);

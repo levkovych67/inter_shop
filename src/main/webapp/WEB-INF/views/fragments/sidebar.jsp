@@ -19,15 +19,15 @@
                 </a>
             </ul>
 
-            <form class="form-group col-xs-12" method="POST" action="/product/get-by-price">
+            <div class="form-group col-xs-12">
                 <p class="text-center">Search by Price</p>
                 <div class="input-group">
-                    <input type="number"   name="startPrice" placeholder="start Price" class="form-control">
-                    <input type="number" name="endPrice"  placeholder="end Price" class="form-control">
+                    <input type="number" ng-init="startPrice=0" ng-model="startPrice"    placeholder="start Price" class="form-control">
+                    <input type="number" ng-init="endPrice=0" ng-model="endPrice"    placeholder="end Price" class="form-control">
                 </div>
-                <button type="submit" class="btn navbar-btn btn-block">Search</button>
+                <a  href="/product/get-by-price/{{startPrice}}/{{endPrice}}" class="btn btn-default btn-block">Search</a>
                 <a href="/" class="btn btn-primary btn-block">Show All</a>
-            </form>
+            </div>
         </div>
 
     </div>

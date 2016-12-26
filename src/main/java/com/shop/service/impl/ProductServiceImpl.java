@@ -43,8 +43,8 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     }
 
     @Override
-    public List<Product> getProductsByPrice(@RequestParam Double startPrice,@RequestParam Double endPrice) {
-        return productDao.getProductsWithPriceFromTo(startPrice, endPrice);
+    public List<Product> getProductsByPrice(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber) {
+        return productDao.getProductsWithPriceFromTo(startPrice, endPrice,  pageSize,  pageNumber);
     }
 
     @Override
