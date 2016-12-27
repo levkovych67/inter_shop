@@ -1,36 +1,38 @@
 INSERT INTO inter_shop.category (id, title) VALUES (1, 'Phones & Accessories');
-INSERT INTO inter_shop.category (id, title) VALUES (2, 'Mobile Phones');
-INSERT INTO inter_shop.category (id, title) VALUES (3, 'Phone Bags & Cases');
-INSERT INTO inter_shop.category (id, title) VALUES (4, 'Mobile Phone Accessories');
-INSERT INTO inter_shop.category (id, title) VALUES (5, 'Mobile Phone Parts');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (2, 'Mobile Phones',1);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (3, 'Phone Bags & Cases',1);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (4, 'Mobile Phone Accessories',1);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (5, 'Mobile Phone Parts',1);
 
 INSERT INTO inter_shop.category (id, title) VALUES (6, 'Computer & Office');
-INSERT INTO inter_shop.category (id, title) VALUES (7, 'Tablets');
-INSERT INTO inter_shop.category (id, title) VALUES (8, 'Tablet & Laptop Accessories');
-INSERT INTO inter_shop.category (id, title) VALUES (9, 'Office Electronics');
-INSERT INTO inter_shop.category (id, title) VALUES (10, 'Storage Devices');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (7, 'Tablets',6);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (8, 'Tablet & Laptop Accessories',6);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (9, 'Office Electronics',6);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (10, 'Storage Devices',6);
 
-INSERT INTO inter_shop.category (id, title) VALUES (11, 'Consumer Electronics');
-INSERT INTO inter_shop.category (id, title) VALUES (12, 'Camera & Photo');
-INSERT INTO inter_shop.category (id, title) VALUES (13, 'Smart Electronics');
-INSERT INTO inter_shop.category (id, title) VALUES (14, 'Portable Audio & Video');
+INSERT INTO inter_shop.category (id, title) VALUES (11, 'Consumer Electronics' );
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (12, 'Camera & Photo',11);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (13, 'Smart Electronics',11);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (14, 'Portable Audio & Video',11);
 
 INSERT INTO inter_shop.category (id, title) VALUES (15, 'Jewelry & Watches');
-INSERT INTO inter_shop.category (id, title) VALUES (16, 'Men''s Watches');
-INSERT INTO inter_shop.category (id, title) VALUES (17, 'Women''s Watches');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (16, 'Men''s Watches',15);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (17, 'Women''s Watches',15);
 
 INSERT INTO inter_shop.category (id, title) VALUES (18, 'Toys, Kids & Baby');
-INSERT INTO inter_shop.category (id, title) VALUES (19, 'Baby Clothing');
-INSERT INTO inter_shop.category (id, title) VALUES (20, 'Toys & Hobbies');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (19, 'Baby Clothing',18);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (20, 'Toys & Hobbies',18);
 
 INSERT INTO inter_shop.category (id, title) VALUES (21, 'Men’s Clothing');
-INSERT INTO inter_shop.category (id, title) VALUES (22, 'Winter Style');
-INSERT INTO inter_shop.category (id, title) VALUES (23, 'Sunglasses');
-INSERT INTO inter_shop.category (id, title) VALUES (24, 'Bottoms');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (22, 'Winter Style',21);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (23, 'Sunglasses',21);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (24, 'Bottoms',21);
 
 INSERT INTO inter_shop.category (id, title) VALUES (25, 'Women’s Clothing');
-INSERT INTO inter_shop.category (id, title) VALUES (26, 'Outwear & Sweaters');
-INSERT INTO inter_shop.category (id, title) VALUES (27, 'Accessories');
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (26, 'Outwear & Sweaters',25);
+INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (27, 'Accessories',25);
+
+
 
 INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 2);
 INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 3);
@@ -262,5 +264,6 @@ INSERT INTO inter_shop.product_image (product_id,image_id) VALUES (55,55);
 INSERT INTO inter_shop.product_image (product_id,image_id) VALUES (56,56);
 INSERT INTO inter_shop.product_image (product_id,image_id) VALUES (57,57);
 INSERT INTO inter_shop.product_image (product_id,image_id) VALUES (58,58);
+
 
 

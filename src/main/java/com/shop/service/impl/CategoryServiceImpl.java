@@ -23,7 +23,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     public List<Category> getCategoryTree() {
         List<Category> categories = categoryDao.findAll();
         List<Category> roots = categories.stream()
-                .filter(category -> !category.getSubcategories().isEmpty())
+                .filter(category -> category.getParentCategory()==null)
                 .collect(Collectors.toList());
         return roots;
     }
@@ -37,18 +37,12 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     @Override
     public void createFromCategoryDto(CategoryDto categoryDto) {
         Category category = new Category();
-        if(categoryDto.getParentCategoryId()==null){
-            category.setTitle(categoryDto.getTitle());
-            categoryDao.create(category);
-        } else {
+        category.setTitle(categoryDto.getTitle());
+        if(categoryDto.getParentCategoryId()!=null) {
             Category parentCategory = categoryDao.findById(categoryDto.getParentCategoryId());
-            List<Category> parentsSubcategories = parentCategory.getSubcategories();
-            category.setTitle(categoryDto.getTitle());
-            parentsSubcategories.add(category);
-            parentCategory.setSubcategories(parentsSubcategories);
-            categoryDao.update(parentCategory);
+            category.setParentCategory(parentCategory);
         }
-
+        categoryDao.create(category);
     }
 
 

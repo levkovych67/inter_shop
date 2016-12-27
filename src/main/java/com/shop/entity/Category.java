@@ -1,6 +1,8 @@
 package com.shop.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,9 +31,16 @@ public class Category {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Product> products;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "category_subcategory", joinColumns = {@JoinColumn(name = "category_id")}, inverseJoinColumns = {@JoinColumn(name = "subcategory_id")})
+
+    @OneToMany
+    @JoinColumn(name = "parent_category_id")
     private List<Category> subcategories;
+
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "parent_category_id")
+    private Category parentCategory;
 
     public List<Product> getProducts() {
         List<Product> list = this.products;
