@@ -1,15 +1,16 @@
 package com.shop.controller;
 
 
+import com.shop.dto.CategoryDto;
 import com.shop.entity.Category;
 import com.shop.entity.Product;
 import com.shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -30,5 +31,13 @@ public class CategoryController {
     @RequestMapping("/category/{id}")
     public String getProductsByCategory() {
         return "index";
+    }
+
+
+    @RequestMapping(value = "/create-category",method = RequestMethod.POST)
+    public @ResponseBody
+    ResponseEntity<Category> createCategory(@RequestBody CategoryDto categoryDto){
+        categoryService.createFromCategoryDto(categoryDto);
+        return new ResponseEntity<Category>(HttpStatus.OK);
     }
 }

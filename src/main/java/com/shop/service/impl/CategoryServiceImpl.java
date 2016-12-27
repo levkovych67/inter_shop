@@ -1,6 +1,7 @@
 package com.shop.service.impl;
 
 import com.shop.dao.CategoryDao;
+import com.shop.dto.CategoryDto;
 import com.shop.entity.Category;
 import com.shop.entity.Product;
 import com.shop.service.CategoryService;
@@ -31,6 +32,23 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     public List<Product> getProductsByCategory(Long id) {
         Category category = categoryDao.findById(id);
         return   category.getProducts();
+    }
+
+    @Override
+    public void createFromCategoryDto(CategoryDto categoryDto) {
+        Category category = new Category();
+        if(categoryDto.getParentCategoryId()==null){
+            category.setTitle(categoryDto.getTitle());
+            categoryDao.create(category);
+        } else {
+            Category parentCategory = categoryDao.findById(categoryDto.getParentCategoryId());
+            List<Category> parentsSubcategories = parentCategory.getSubcategories();
+            category.setTitle(categoryDto.getTitle());
+            parentsSubcategories.add(category);
+            parentCategory.setSubcategories(parentsSubcategories);
+            categoryDao.update(parentCategory);
+        }
+
     }
 
 

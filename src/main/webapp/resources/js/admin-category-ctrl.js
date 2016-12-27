@@ -2,8 +2,8 @@ angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '
 
     var url = '/categories';
 
-    $scope.alert = function (str) {
-        console.log(str)
+    $scope.startingChild = function (category) {
+        $scope.parentCategory = category;
     };
     getAllCategories();
     $scope.categories = [];
@@ -13,4 +13,12 @@ angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '
         });
     }
 
+    $scope.createCategory = function () {
+        var parentCategoryId = $scope.parentCategory.id;
+        var category = {'title':$scope.newCategoryTitle,'parentCategoryId':parentCategoryId};
+        $http.post('/create-category',category).then(function () {
+            getAllCategories()
+        })
+
+    }
 }]);

@@ -1,5 +1,6 @@
 package com.shop.service;
 
+import com.shop.dto.CategoryDto;
 import com.shop.entity.Category;
 import com.shop.entity.Product;
 
@@ -14,5 +15,5 @@ public interface CategoryService extends BaseService<Category>{
 
     List<Product> getProductsByCategory(Long id);
 
-
+void createFromCategoryDto(CategoryDto categoryDto);
 }
