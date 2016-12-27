@@ -26,11 +26,15 @@
 
                 <div class="col-md-12 panelBottom">
                     <div class="col-md-6 text-center">
-
+                        <sec:authorize access="!isAuthenticated()">
+                            <a href="/login" class="btn btn-lg btn-add-to-cart">Login to add product to <span
+                                    class="fa fa-shopping-cart"></span>
+                            </a>
+                        </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <sec:authorize access="hasRole('USER')">
                                 <button ng-click="addToCart(${product.id})" class="btn btn-lg btn-add-to-cart"><span
-                                        class="fa fa-shopping-cart"></span> Add to Cart
+                                        class="fa fa-shopping-cart"></span> add to cart
                                 </button>
                             </sec:authorize>
                         </sec:authorize>
