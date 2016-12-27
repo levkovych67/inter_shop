@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface ProductDao extends BaseDao<Product> {
 
-    List<Product> getProductsWithPriceFromTo(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber);
+    List<Product> getPaginatedProductsByPrice(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber);
 
 
-    List<Product> getProductsByTitle(String title);
+    List<Product> getPaginatedProductsByTitle(String title,Integer pageSize,Integer pageNumber);
 
     void deleteById(Long id);
 

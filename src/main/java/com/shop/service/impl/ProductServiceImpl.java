@@ -38,13 +38,13 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     @Autowired
     private CategoryService categoryService;
 
-    public List<Product> getProductByTitle(String title) {
-        return productDao.getProductsByTitle(title);
+    public List<Product> getPaginatedProductsByTitle(String title,Integer pageSize,Integer pageNumber) {
+        return productDao.getPaginatedProductsByTitle(title,  pageSize,  pageNumber);
     }
 
     @Override
-    public List<Product> getProductsByPrice(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber) {
-        return productDao.getProductsWithPriceFromTo(startPrice, endPrice,  pageSize,  pageNumber);
+    public List<Product> getPaginatedProductsByPrice(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber) {
+        return productDao.getPaginatedProductsByPrice(startPrice, endPrice,  pageSize,  pageNumber);
     }
 
     @Override

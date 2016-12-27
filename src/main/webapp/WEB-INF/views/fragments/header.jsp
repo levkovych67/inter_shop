@@ -22,21 +22,21 @@
                 <div class="navbar-header">
                     <a class="navbar-brand navbar-link header-name" href="/">Internet<span class="">Shop</span></a>
                 </div>
-                <form class="navbar-form default-font-nav-tab navbar-left" method="POST" action="/product/search">
+                <div class="navbar-form default-font-nav-tab navbar-left"  >
                     <div class="  nav">
                         <ul>
                             <div class="input-group">
                                 <li style="width: 300px ">
-                                    <input id="name" name="title" type="text" style="width: 300px "
+                                    <input id="name" ng-model="title" name="title" type="text" style="width: 300px "
                                            class="form-control default-font-nav-tab"
                                            placeholder="Search"
                                     ></li>
                             </div>
-                            <li class="about"><a onclick="$(this).closest('form').submit()"><i
+                            <li class="about"><a ng-href="/product/search/{{title}}"><i
                                     class="fa fa-search "></i></a></li>
                         </ul>
                     </div>
-                </form>
+                </div>
                 <form class="navbar-form navbar-right">
                     <div class="  nav">
                         <ul>

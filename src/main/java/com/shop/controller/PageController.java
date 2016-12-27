@@ -33,9 +33,13 @@ public class PageController {
 
     @RequestMapping(value = "product/get-by-price/{startPrice}/{endPrice}/{pageSize}/{pageNumber}", method = RequestMethod.GET)
     public @ResponseBody  List<Product> getByPrice(@PathVariable Double startPrice, @PathVariable Double endPrice, @PathVariable Integer pageSize, @PathVariable Integer pageNumber) {
-        return productService.getProductsByPrice(startPrice,endPrice,pageSize,pageNumber);
+        return productService.getPaginatedProductsByPrice(startPrice,endPrice,pageSize,pageNumber);
     }
 
+    @RequestMapping("product/search/{title}/{pageSize}/{pageNumber}")
+    public  @ResponseBody  List<Product> searchProductsByTitle(@PathVariable String title,@PathVariable Integer pageSize,@PathVariable Integer pageNumber) {
+        return productService.getPaginatedProductsByTitle(title,pageSize,pageNumber);
 
+    }
 
 }

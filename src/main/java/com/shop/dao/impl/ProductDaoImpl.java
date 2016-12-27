@@ -21,7 +21,7 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Product> getProductsWithPriceFromTo(Double startPrice, Double endPrice, Integer pageSize, Integer pageNumber) {
+    public List<Product> getPaginatedProductsByPrice(Double startPrice, Double endPrice, Integer pageSize, Integer pageNumber) {
         Session session = sessionFactory.getCurrentSession();
         Integer lambda = pageSize * (pageNumber - 1);
         return session.createQuery("from Product where price between :startingPrice and  :endPrice ")
@@ -31,9 +31,10 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
 
     @Override
-    public List<Product> getProductsByTitle(String title) {
+    public List<Product>getPaginatedProductsByTitle(String title,Integer pageSize,Integer pageNumber) {
+        Integer lambda = pageSize * (pageNumber - 1);
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from Product where title like '%" + title + "%'  ").list();
+        return session.createQuery("from Product where title like '%" + title + "%'  ").setFirstResult(lambda).setMaxResults(pageSize).list();
     }
 
     @Override

@@ -38,10 +38,8 @@ public class ProductController {
         return "common/product";
     }
 
-    @RequestMapping("/search")
-    public String searchProducts(Model model, @RequestParam String title) {
-        List<Product> products = productService.getProductByTitle(title);
-        model.addAttribute("products", products);
+    @RequestMapping("/search/{title}")
+    public String searchProducts() {
         return "index";
     }
 
@@ -71,7 +69,6 @@ public class ProductController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createProduct(MultipartFile image, ProductDto productDto) throws IOException {
         productService.saveProductDto(productDto, image);
-
         return "redirect:/";
     }
     @PreAuthorize("hasRole('ROLE_ADMIN')")

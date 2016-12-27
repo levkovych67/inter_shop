@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface ProductService extends BaseService<Product> {
 
-    List<Product> getProductByTitle(String title);
+    List<Product>getPaginatedProductsByTitle(String title,Integer pageSize,Integer pageNumber);
 
-    List<Product> getProductsByPrice(Double startPrice,Double endPrice,Integer pageSize,Integer pageNumber);
+    List<Product> getPaginatedProductsByPrice(Double startPrice,Double endPrice,Integer pageSize,Integer pageNumber);
 
     void deleteById(Long id);
 
