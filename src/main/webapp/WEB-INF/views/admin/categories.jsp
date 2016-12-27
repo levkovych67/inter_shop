@@ -29,7 +29,6 @@
                 <ul class="row" >
                     <div class="text-center">
                         <br><br><br>
-                        <button class="btn btn-success">create root category</button>
                        <div ng-show="parentCategory">
                            <h4>Parent category is {{parentCategory.title}}</h4>
                            <hr>
