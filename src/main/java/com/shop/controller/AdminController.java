@@ -59,4 +59,11 @@ public class AdminController {
         userOrderService.confirmOrder(userOrderId);
         return new ResponseEntity<UserOrder>(HttpStatus.OK);
     }
+
+    @RequestMapping("/categories")
+    public String categories(){
+        return "admin/categories";
+    }
+
+
 }
