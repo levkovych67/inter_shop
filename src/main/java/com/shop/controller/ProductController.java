@@ -18,7 +18,7 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping("/product/")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -53,8 +53,8 @@ public class ProductController {
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST, consumes = "application/json")
     public
     @ResponseBody
-    CommentDto createComment(@RequestBody CommentDto commentDto, @PathVariable Long id,Principal principal) {
-        commentService.createComment(id, commentDto.getContent(),principal.getName());
+    CommentDto createComment(@RequestBody CommentDto commentDto, @PathVariable Long id, Principal principal) {
+        commentService.createComment(id, commentDto.getContent(), principal.getName());
         return commentDto;
     }
 
