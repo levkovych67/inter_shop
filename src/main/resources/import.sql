@@ -32,35 +32,6 @@ INSERT INTO inter_shop.category (id, title) VALUES (25, 'Women’s Clothing');
 INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (26, 'Outwear & Sweaters',25);
 INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (27, 'Accessories',25);
 
-
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 2);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 3);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 4);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (1, 5);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (6, 7);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (6, 8);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (6, 9);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (6, 10);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (11, 12);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (11, 13);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (11, 14);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (15, 16);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (15, 17);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (18, 19);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (18, 20);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (21, 22);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (21, 23);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (21, 24);
-
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (25, 26);
-INSERT INTO inter_shop.category_subcategory (category_id, subcategory_id) VALUES (25, 27);
-
 INSERT INTO inter_shop.address (id, apartment_number, street, street_number, zip_code, city) VALUES (1, 36, 'Lubinska', 164, 79040, 'Lviv');
 INSERT INTO inter_shop.address (id, apartment_number, street, street_number, zip_code, city) VALUES (2, 23, 'Patona', 10, 79040, 'Kiyv');
 
