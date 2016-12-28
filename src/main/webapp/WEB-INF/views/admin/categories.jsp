@@ -32,10 +32,11 @@
                        <div ng-show="parentCategory">
                            <h4>Parent category is {{parentCategory.title}}</h4>
                            <hr>
-                           <h4>Please write a title for the category</h4>
+                           <h4>Category title</h4>
                            <form name="categoryForm" class="form-group">
                                <input name="newCategoryTitle" ng-model="newCategoryTitle" class="form-control" required>
                            </form>
+                           <h4>&nbsp;</h4>
                            <hr>
                            <button ng-show="categoryForm.newCategoryTitle.$valid" class="btn btn-success pull-right"
                                    ng-click="createCategory()">create category
