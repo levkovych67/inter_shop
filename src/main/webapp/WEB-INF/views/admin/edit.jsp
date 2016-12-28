@@ -5,10 +5,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<jsp:include page="../fragments/header.jsp"/>
-<div class="container-fluid base-light  content">
+    <jsp:include page="../fragments/header.jsp"/>
+    <div class="container-fluid base-light  content">
     <jsp:include page="../fragments/sidebar.jsp"/>
-    <div class="col-md-10"  ng-controller="EditCtrl">
+    <div class="col-md-9 col-lg-10  "  ng-controller="EditCtrl">
         <div class="panel-primary   ">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -17,11 +17,11 @@
             </div>
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <img ng-src="{{imageSrc}}" src="${product.images[0].url}" class="img-responsive">
                     </div>
                     <div class="col-md-8">
-                        <div class="col-xs-6 row">
+
                             <spring:url value="/product/${id}/edit" var="formUrl"/>
                             <form:form modelAttribute="product" action="${formUrl }" method="post"
                                        enctype="multipart/form-data">
@@ -66,7 +66,7 @@
                                     </a>
                                 </div>
                             </form:form>
-                        </div>
+
                     </div>
                 </div>
 

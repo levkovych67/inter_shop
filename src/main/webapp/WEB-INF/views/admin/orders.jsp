@@ -57,7 +57,6 @@
     </div>
 
 </div>
-
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
 <script src="/resources/js/admin-orders-ctrl.js"></script>

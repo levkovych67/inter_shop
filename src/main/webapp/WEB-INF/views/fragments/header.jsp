@@ -22,7 +22,7 @@
                 <div class="navbar-header">
                     <a class="navbar-brand navbar-link header-name" href="/">Internet<span class="">Shop</span></a>
                 </div>
-                <div class="navbar-form default-font-nav-tab navbar-left"  >
+                <div class="navbar-form default-font-nav-tab navbar-left">
                     <div class="  nav">
                         <ul>
                             <div class="input-group">
@@ -43,18 +43,21 @@
                             <sec:authorize access="isAuthenticated()">
                                 <sec:authorize access="hasRole('USER')">
                                     <li class=""><a href="/user/settings"><i class="fa fa-user  "></i></a></li>
-                                    <li class="about"><a href="/user/cart"><i class="fa fa-shopping-cart  "></i> </a></li>
+                                    <li class="about"><a href="/user/cart"><i class="fa fa-shopping-cart  "></i> </a>
+                                    </li>
                                     <li class="about"><a href="/logout"><i class="fa fa-sign-out  "></i></a></li>
                                 </sec:authorize>
                             </sec:authorize>
                             <sec:authorize access="isAuthenticated()">
                                 <sec:authorize access="hasRole('ADMIN')">
                                     <ul>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin/categories/">Categories</a></li>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin/orders/">Orders</a></li>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/admin/users/">Users</a></li>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/product/create">Create Lot</a></li>
-                                        <li><a type="button" class="default-font-nav-tab btn navbar-btn" href="/logout">Logout </a></li>
+                                        <li><a type="button" class="  btn-square" href="/admin/categories/"><span
+                                                class="font">Categories</span></a></li>
+                                        <li><a type="button" class="btn-square" href="/admin/orders/"><span class="font">Orders</span></a></li>
+                                        <li><a type="button" class="btn-square" href="/admin/users/"><span class="font">Users</span></a></li>
+                                        <li><a type="button" class="btn-square" href="/product/create"><span class="font">Create Lot</span></a>
+                                        </li>
+                                        <li><a type="button" class="btn-square" href="/logout"><span class="font">Logout</span></a></li>
                                     </ul>
 
 

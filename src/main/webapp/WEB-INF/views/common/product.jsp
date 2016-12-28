@@ -5,7 +5,7 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container-fluid base-light  content">
     <jsp:include page="../fragments/sidebar.jsp"/>
-    <div class="col-md-10" ng-controller="ProductCtrl">
+    <div class="col-md-9 col-lg-10 " ng-controller="ProductCtrl">
         <div class="panel-primary   ">
             <div class="panel-heading">
                 <h3 class="panel-title">

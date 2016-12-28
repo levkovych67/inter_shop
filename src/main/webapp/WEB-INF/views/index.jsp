@@ -6,7 +6,7 @@
 <jsp:include page="../views/fragments/header.jsp"/>
 <div class="container-fluid">
     <jsp:include page="fragments/sidebar.jsp"/>
-    <div class="col-md-10 row center-block" ng-controller="PageCtrl">
+    <div class="col-md-9 col-lg-10  row center-block" ng-controller="PageCtrl">
         <div class="col-xs-12">
             <div class="white" style="height:34px">
                <button ng-disabled="pageNumber<2" class="btn btn-square btn-primary" ng-click="prevPage()">Previous page</button>

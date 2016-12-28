@@ -72,11 +72,12 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
             getProducts();
         });
 
-    }
+    };
 
     $scope.confirmOrder = function () {
         $http.post('/user/confirm');
         $scope.filteredProducts = [];
         $scope.showConfirmation=false;
+        $scope.total = 0;
     }
 }]);

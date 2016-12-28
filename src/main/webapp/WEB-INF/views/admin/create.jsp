@@ -9,7 +9,7 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container-fluid base-light  content" ng-controller="EditCtrl">
     <jsp:include page="../fragments/sidebar.jsp"/>
-    <div class="col-md-10">
+    <div class="col-md-9 col-lg-10 ">
         <div class="panel-primary   ">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -18,11 +18,10 @@
             </div>
             <div class="white panel-body">
                 <div class="col-md-12 panelTop">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <img ng-src="{{imageSrc}}" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" class="img-responsive">
                     </div>
                     <div class="col-md-8">
-                        <div class="col-xs-6 row">
                             <spring:url value="/product/create" var="formUrl"/>
                             <form:form modelAttribute="product" action="${formUrl }" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
@@ -51,7 +50,7 @@
                                 </label>
                                 <br><br>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-lg btn-add-to-cart text-center"><span
+                                    <button type="submit" class="btn btn-lg btn-success text-center"><span
                                             class="fa fa-check"></span> Submit
                                     </button>
                                     <a href="/" class="btn btn-danger btn-lg  text-center"><span
@@ -59,8 +58,6 @@
                                     </a>
                                 </div>
                             </form:form>
-                        </div>
-
                     </div>
                 </div>
             </div>

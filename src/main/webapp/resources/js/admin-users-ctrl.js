@@ -14,7 +14,7 @@ angular.module('myApp.controllers').controller('AdminUsrListCtrl', ['$scope', '$
         })
     };
     $scope.createNewUser = function () {
-        $http.post('/user/sign-in', $scope.user).then(function (response) {
+        $http.post('/sign-in', $scope.user).then(function (response) {
             getUsers()
         });
     };

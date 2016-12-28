@@ -32,17 +32,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    ResponseEntity registerNewUser(@RequestBody @Valid User user, BindingResult bindingResult) {
-        userValidator.validate(user,bindingResult);
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
-        }
-        userService.registerNewUser(user);
-        return ResponseEntity.ok().build();
-    }
+
 
 
 }

@@ -8,7 +8,7 @@
         </a>
     </ul>
 </script>
-<div class="col-md-2 col-xs-6 row" ng-controller="SideBarCtrl as bar">
+<div class="col-md-3 col-lg-2 col-xs-6 row" ng-controller="SideBarCtrl as bar">
     <div class="panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Categories</h3>

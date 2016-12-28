@@ -23,9 +23,9 @@
                     <td>{{product.title}}</td>
                     <td>{{product.price}}$</td>
                     <td class="text-center">
-                        <a ng-click="addToCart(product)" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></a>
+                        <a ng-click="addToCart(product)" class="label label-success"><i class="fa fa-plus"></i></a>
                        <span> {{product.quantity}} </span>
-                        <a ng-click="deleteFromCart(product,$index)" class="btn btn-danger btn-xs"><i class="fa fa-minus"></i></a>
+                        <a ng-click="deleteFromCart(product,$index)" class="label label-danger"><i class="fa fa-minus"></i></a>
                     </td>
 
                 </tr>
