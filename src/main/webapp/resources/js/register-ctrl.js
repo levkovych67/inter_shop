@@ -2,14 +2,10 @@ angular.module('myApp.controllers').controller('RegisterCtrl', ['$scope', '$loca
 
 
     $scope.registerUser = function () {
-        if ($scope.firstName && $scope.lastName && $scope.phone && $scope.email && $scope.password && $scope.confirmPassword) {
-            if ($scope.password == $scope.confirmPassword) {
-                var user = {};
-                user.firstName = $scope.firstName;
-                user.lastName = $scope.lastName;
-                user.phone = $scope.phone;
-                user.email = $scope.email;
-                user.password = $scope.password;
+        if (checkFields()) {
+            if (comparePass()) {
+                $scope.passwordError = false;
+               var user = buildUser();
                 $http.post('/user/sign-in', user).then(function successCallback(response) {
                     $scope.showError = false;
                     $scope.userCreated = true;
@@ -20,7 +16,24 @@ angular.module('myApp.controllers').controller('RegisterCtrl', ['$scope', '$loca
                 });
             }
         }
+    };
+
+    var checkFields = function () {
+        return !!($scope.firstName && $scope.lastName && $scope.phone && $scope.email && $scope.password && $scope.confirmPassword);
+    };
+    var comparePass = function () {
+        if ($scope.password != $scope.confirmPassword) {
+            $scope.passwordError = true;
+            return false;
+        } else return true;
+    };
+    var buildUser = function () {
+        var user = {};
+        user.firstName = $scope.firstName;
+        user.lastName = $scope.lastName;
+        user.phone = $scope.phone;
+        user.email = $scope.email;
+        user.password = $scope.password;
+        return user;
     }
-
-
 }]);

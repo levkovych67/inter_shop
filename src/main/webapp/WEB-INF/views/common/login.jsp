@@ -26,7 +26,7 @@
             <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
             <br>
-            <a class="btn btn-lg btn-primary btn-block" href="/sign-in"><i class="fa fa-sign-in "></i></a>
+            <a class="btn btn-lg btn-primary btn-block" href="/registration"><i class="fa fa-sign-in "></i></a>
         </div>
 
 

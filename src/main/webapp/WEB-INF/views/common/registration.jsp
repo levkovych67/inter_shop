@@ -49,10 +49,12 @@
         </div>
         <div class="form-group">
             <label class="control-label">Confirm password</label>
+
             <div>
                 <input type="password" ng-model="confirmPassword" placeholder="confirm password" class="form-control"
                        required="">
             </div>
+            <label class="label alert-danger" ng-show="passwordError">Passwords are different!</label>
         </div>
         <div class="form-group text-center">
             <button ng-click="registerUser()" class="btn btn-success">Register</button>
