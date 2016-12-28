@@ -181,3 +181,11 @@ span.itemPrice {
     padding: 4px;
 }
 
+
+
+.animated-alert {
+    transition: all linear 0.5s;
+}
+.animated-alert.ng-hide {
+    opacity: 0;
+}

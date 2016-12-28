@@ -1,4 +1,4 @@
-angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '$location', '$timeout', '$http', function ($scope, $location, $timeout, $http) {
 
     var url = '/categories';
 
@@ -10,15 +10,27 @@ angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '
     function getAllCategories() {
         $http.get(url).then(function (response) {
             $scope.categories = response.data;
+            $scope.newCategoryTitle = null;
         });
     }
 
     $scope.createCategory = function () {
         var parentCategoryId = $scope.parentCategory.id;
-        var category = {'title':$scope.newCategoryTitle,'parentCategoryId':parentCategoryId};
-        $http.post('/create-category',category).then(function () {
+        var category = {'title': $scope.newCategoryTitle, 'parentCategoryId': parentCategoryId};
+        $http.post('/create-category', category).then(function () {
             getAllCategories()
-        })
+        });
+        $scope.parentCategory = null;
+        $scope.showCreated();
+    };
 
-    }
+
+    $scope.categoryCreated = true;
+
+    $scope.showCreated = function () {
+        $scope.categoryCreated = false;
+        $timeout(function () {
+            $scope.categoryCreated = true;
+        }, 2000);
+    };
 }]);

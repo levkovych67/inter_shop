@@ -6,7 +6,8 @@
 <br>
 
 <script type="text/ng-template" id="tree_view">
-    <button class="btn btn-link btn-xs" ng-click="startingChild(category)">  <i class="fa plus-icon fa-plus-circle"></i></button> <span>{{ category.title }}</span>
+    <button class="btn btn-link btn-xs" ng-click="startingChild(category)"><i class="fa plus-icon fa-plus-circle"></i>
+    </button> <span>{{ category.title }}</span>
     <ul ng-if="category.subcategories">
         <span ng-repeat="category in category.subcategories" ng-include="'tree_view'">
         </span>
@@ -26,22 +27,25 @@
 
             </div>
             <div class="col-xs-6 row">
-                <ul class="row" >
+                <ul class="row">
                     <div class="text-center">
                         <br><br><br>
-                       <div ng-show="parentCategory">
-                           <h4>Parent category is {{parentCategory.title}}</h4>
-                           <hr>
-                           <h4>Category title</h4>
-                           <form name="categoryForm" class="form-group">
-                               <input name="newCategoryTitle" ng-model="newCategoryTitle" class="form-control" required>
-                           </form>
-                           <h4>&nbsp;</h4>
-                           <hr>
-                           <button ng-show="categoryForm.newCategoryTitle.$valid" class="btn btn-success pull-right"
-                                   ng-click="createCategory()">create category
-                           </button>
-                       </div>
+                        <div ng-show="parentCategory">
+                            <h4>Parent category is {{parentCategory.title}}</h4>
+                            <hr>
+                            <h4>Category title</h4>
+                            <form name="categoryForm" class="form-group">
+                                <input name="newCategoryTitle" ng-model="newCategoryTitle" class="form-control"
+                                       required>
+                            </form>
+                            <h4>&nbsp;</h4>
+                            <hr>
+                            <button ng-show="categoryForm.newCategoryTitle.$valid" class="btn btn-success pull-right"
+                                    ng-click="createCategory()">create category
+                            </button>
+                        </div>
+                        <h4><p class="alert alert-success" ng-hide="categoryCreated">Category is created <i
+                                class="fa fa-exclamation-triangle"></i></p></h4>
                     </div>
                 </ul>
 
