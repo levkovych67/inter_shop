@@ -26,6 +26,7 @@ angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location
         $scope.isNextPageAvailable=false;
     };
     $scope.reloadPageSize = function (pageSize) {
+        $scope.isNextPageAvailable = false;
         getProducts(pageSize, 1);
         $scope.pageNumber = 1;
     };
