@@ -1,8 +1,5 @@
 angular.module('myApp.controllers').controller('PageCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
-
     var url =$location.absUrl()+'/';
-
-
     $scope.pageSize = '18';
     $scope.pageNumber = 1;
     var getProducts = function (pageSize, pageNumber) {

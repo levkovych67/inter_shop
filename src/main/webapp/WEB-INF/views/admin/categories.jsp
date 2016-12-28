@@ -30,6 +30,9 @@
                 <ul class="row">
                     <div class="text-center">
                         <br><br><br>
+
+                        <button class="btn btn-success" ng-click="startingRoot()">Create root category</button>
+                        <br><br>
                         <div ng-show="parentCategory">
                             <h4>Parent category is {{parentCategory.title}}</h4>
                             <hr>
@@ -42,6 +45,19 @@
                             <hr>
                             <button ng-show="categoryForm.newCategoryTitle.$valid" class="btn btn-success pull-right"
                                     ng-click="createCategory()">create category
+                            </button>
+                        </div>
+                        <div ng-show="rootCategory">
+                            <hr>
+                            <h4>Category title</h4>
+                            <form name="categoryForm" class="form-group">
+                                <input name="newCategoryTitle" ng-model="newCategoryTitle" class="form-control"
+                                       required>
+                            </form>
+                            <h4>&nbsp;</h4>
+                            <hr>
+                            <button ng-show="categoryForm.newCategoryTitle.$valid" class="btn btn-success pull-right"
+                                    ng-click="createRootCategory()">create category
                             </button>
                         </div>
                         <h4><p class="alert alert-success" ng-hide="categoryCreated">Category is created <i
