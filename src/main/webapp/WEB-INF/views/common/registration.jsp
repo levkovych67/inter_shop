@@ -13,7 +13,7 @@
     </div>
     <div class="jumbotron   alert-danger text-center" ng-show="showError">
         <span>Error occurred</span>
-         <p ng-repeat="error in errors">{{error.code}} : {{error.defaultMessage}}</p>
+        <p ng-repeat="error in errors">{{error.code}} : {{error.defaultMessage}}</p>
     </div>
     <form class="form-horizontal jumbotron white col-xs-12 ">
         <p class="text-center">Sign in</p>
@@ -49,7 +49,6 @@
         </div>
         <div class="form-group">
             <label class="control-label">Confirm password</label>
-
             <div>
                 <input type="password" ng-model="confirmPassword" placeholder="confirm password" class="form-control"
                        required="">
@@ -57,8 +56,14 @@
             <label class="label alert-danger" ng-show="passwordError">Passwords are different!</label>
         </div>
         <div class="form-group text-center">
-            <button ng-click="registerUser()" class="btn btn-success">Register</button>
-            <a href="/" class=" btn btn-danger  ">Cancel</a>
+            <div class="col-xs-6 ">
+                <button ng-click="registerUser()" class="btn btn-lg btn-primary btn-block btn-cons">Register</button>
+            </div>
+            <div class="col-xs-6 ">
+                <a href="/" class="btn btn-lg btn-danger btn-block">Cancel</a>
+            </div>
+
+
         </div>
 
     </form>
