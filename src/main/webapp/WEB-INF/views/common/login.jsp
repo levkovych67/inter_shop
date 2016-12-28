@@ -6,15 +6,16 @@
 
 
 <jsp:include page="../fragments/header.jsp"/>
-<div class="container col-xs-2 col-xs-offset-5">
+<div class="container col-xs-4 col-xs-offset-4">
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-    <form method="POST" action="${contextPath}/login" class="form-signin text-center">
-        <div class="form-group ${error != null ? 'has-error' : ''}">
+    <form method="POST" action="${contextPath}/login" class="jumbotron form-signin text-center">
+        <span>Login</span>
+        <div class="form-group  ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
             <br>
             <input name="username" type="text" class="form-control" placeholder="email"

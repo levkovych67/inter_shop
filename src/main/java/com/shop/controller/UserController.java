@@ -1,16 +1,18 @@
 package com.shop.controller;
 
 
-import com.shop.entity.Product;
+
 import com.shop.entity.User;
 import com.shop.service.UserService;
-import javafx.geometry.Pos;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shop.validator.UserValidator;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
-import java.util.List;
+import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/user/")
@@ -21,6 +23,9 @@ public class UserController {
     private UserService userService;
 
 
+    @Autowired
+    private UserValidator userValidator;
+
     @RequestMapping("/settings")
     public String getSettings() {
         return "user/settings";
@@ -30,11 +35,14 @@ public class UserController {
     @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
     public
     @ResponseBody
-    User registerNewUser(@RequestBody User user) {
+    ResponseEntity registerNewUser(@RequestBody @Valid User user, BindingResult bindingResult) {
+        userValidator.validate(user,bindingResult);
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
+        }
         userService.registerNewUser(user);
-        return user;
+        return ResponseEntity.ok().build();
     }
-
 
 
 }

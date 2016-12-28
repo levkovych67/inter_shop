@@ -52,10 +52,9 @@ public class LoginController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/sign-in")
+    @RequestMapping(value = "/registration")
     public String signIn(){
-        return "common/sign-in";
+        return "common/registration";
     }
-
 
 }

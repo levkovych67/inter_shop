@@ -112,7 +112,7 @@
                     </div>
                     <div class="modal-footer ">
                         <div class="col-xs-6 text-center">
-                            <button type="button" ng-click="createNewUser()" class="btn btn-primary login-button">Register</button>
+                            <button type="button" ng-click="registerUser()" class="btn btn-primary login-button">Register</button>
                         </div>
                         <div class="col-xs-6 text-center">
                             <button type="button" data-dismiss="modal" class="btn btn-danger    login-button">Cancel</button>

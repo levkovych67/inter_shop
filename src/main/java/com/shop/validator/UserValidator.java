@@ -2,6 +2,7 @@ package com.shop.validator;
 
 import com.shop.entity.User;
 import com.shop.service.UserService;
+import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -22,21 +23,20 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
+        EmailValidator emailValidator = new EmailValidator();
+        User user = (User) o;
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required");
 
-        User user= (User) o;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","required");
 
-        if(user.getEmail().length()<3){
-            errors.rejectValue("email","to short email");
+        if(!emailValidator.isValid(user.getEmail(),null)){
+            errors.rejectValue("email", "not valid email");
         }
-
-        if (userService.findUserByEmail(user.getEmail()) != null){
-            errors.rejectValue("email","duplicated email");
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"password","required");
-        if (user.getPassword().length()<8 || user.getPassword().length()>32){
-            errors.rejectValue("password","not acceptable password size");
+        if (userService.findUserByEmail(user.getEmail()) != null) {
+            errors.rejectValue("email", "this email already registered");
         }
 
     }
