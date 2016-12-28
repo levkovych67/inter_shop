@@ -7,15 +7,15 @@
 <div class="container col-xs-6 col-xs-offset-3" ng-controller="RegisterCtrl">
     <br>
 
-    <div class="jumbotron alert-success text-center" ng-show="userCreated">
+    <div class="jumbotron   alert-success text-center" ng-show="userCreated">
         <p>User Created</p>
         <a class="btn btn-default" href="/login">Login</a>
     </div>
-    <div class="jumbotron alert-danger text-center" ng-show="showError">
+    <div class="jumbotron   alert-danger text-center" ng-show="showError">
         <span>Error occurred</span>
          <p ng-repeat="error in errors">{{error.code}} : {{error.defaultMessage}}</p>
     </div>
-    <form class="form-horizontal jumbotron col-xs-12 ">
+    <form class="form-horizontal jumbotron white col-xs-12 ">
         <p class="text-center">Sign in</p>
         <div class="form-group">
             <label class="control-label">Email</label>

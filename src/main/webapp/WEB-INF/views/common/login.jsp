@@ -13,7 +13,7 @@
     <br>
     <br>
     <br>
-    <form method="POST" action="${contextPath}/login" class="jumbotron form-signin text-center">
+    <form method="POST" action="${contextPath}/login" class="jumbotron  white form-signin text-center">
         <span>Login</span>
         <div class="form-group  ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
@@ -26,7 +26,7 @@
             <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
             <br>
-            <a class="btn btn-lg btn-primary btn-block" href="/registration"><i class="fa fa-sign-in "></i></a>
+            <a class="btn btn-lg btn-primary btn-block" href="/registration">Sign in</a>
         </div>
 
 
