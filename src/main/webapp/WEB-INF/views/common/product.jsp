@@ -33,7 +33,7 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <sec:authorize access="hasRole('USER')">
-                                <button ng-click="addToCart(${product.id})" class="btn btn-lg btn-add-to-cart"><span
+                                <button ng-click="addToCart(${product.id})" class="btn btn-lg btn-success"><span
                                         class="fa fa-shopping-cart"></span> add to cart
                                 </button>
                             </sec:authorize>
@@ -75,7 +75,7 @@
                             <textarea class="form-control custom-control" ng-model="comment"
                                       placeholder="Leave feedback" rows="3"
                                       style="resize:none"></textarea>
-                                <span class="input-group-addon btn btn-success" ng-click="send()">Send</span>
+                                <span class="input-group-addon btn-square" ng-click="send()">Send</span>
                             </div>
                         </sec:authorize>
                     </sec:authorize>
