@@ -23,7 +23,6 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        EmailValidator emailValidator = new EmailValidator();
         User user = (User) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "required");
@@ -31,12 +30,9 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required");
 
-
-        if(!emailValidator.isValid(user.getEmail(),null)){
-            errors.rejectValue("email", "not valid email");
-        }
         if (userService.findUserByEmail(user.getEmail()) != null) {
-            errors.rejectValue("email", "this email already registered");
+            errors.rejectValue("email", "this email already registered","Email");
+
         }
 
     }
