@@ -76,9 +76,6 @@
             </div>
             <div class="panel-footer clearfix">
                 <p class="pull-left">{{user.email}}</p>
-                <button class="pull-right btn btn-primary">
-                    <i class="fa fa-edit"></i>
-                </button>
             </div>
         </div>
 
