@@ -5,12 +5,15 @@ import com.shop.entity.User;
 import com.shop.entity.UserOrder;
 import com.shop.service.UserOrderService;
 import com.shop.service.UserService;
+import com.shop.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserValidator userValidator;
 
     @Autowired
     private UserOrderService userOrderService;
@@ -66,4 +72,21 @@ public class AdminController {
     }
 
 
+    @RequestMapping(value = "/create-admin")
+    public String getAdminCreationFrom(){
+        return "admin/create-admin";
+    }
+
+
+    @RequestMapping(value = "/create-admin", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity registerNewUser(@RequestBody @Valid User admin, BindingResult bindingResult) {
+        userValidator.validate(admin, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
+        }
+        userService.registerNewAdmin(admin);
+        return ResponseEntity.ok().build();
+    }
 }

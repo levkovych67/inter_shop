@@ -68,6 +68,13 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
+    public void registerNewAdmin(User admin) {
+        admin.setRole(Role.ADMIN);
+        admin.setActive(Boolean.TRUE);
+        userDao.create(admin);
+    }
+
+    @Override
     public User addProductToCart(Long productId, String userEmail) {
         User user =userDao.findUserByEmail(userEmail);
         List<Product> usersProducts = user.getProducts();

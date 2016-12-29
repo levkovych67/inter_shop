@@ -21,6 +21,8 @@ public interface UserService extends BaseService<User> {
 
     void registerNewUser(User user);
 
+    void registerNewAdmin(User admin);
+
     User addProductToCart(Long productId,String userEmail);
 
     List<Product> getProductsInCart(String userEmail);

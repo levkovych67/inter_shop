@@ -55,6 +55,7 @@
                                                 class="font">Categories</span></a></li>
                                         <li><a type="button" class="btn-square" href="/admin/orders/"><span class="font">Orders</span></a></li>
                                         <li><a type="button" class="btn-square" href="/admin/users/"><span class="font">Users</span></a></li>
+                                        <li><a type="button" class="btn-square" href="/admin/create-admin/"><span class="font">Create Admin</span></a></li>
                                         <li><a type="button" class="btn-square" href="/product/create"><span class="font">Create Lot</span></a>
                                         </li>
                                         <li><a type="button" class="btn-square" href="/logout"><span class="font">Logout</span></a></li>
