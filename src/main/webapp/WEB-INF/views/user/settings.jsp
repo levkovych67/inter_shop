@@ -5,11 +5,13 @@
 
 
 <jsp:include page="../fragments/header.jsp"/>
-<div class="container-fluid"></div>
+<div class="container-fluid">
+
+</div>
 
 <jsp:include page="../fragments/footer.jsp"/>
 <jsp:include page="../fragments/scripts.jsp"/>
-
+<script src="/resources/js/user-setting-ctrl.js"></script>
 
 </body>
 

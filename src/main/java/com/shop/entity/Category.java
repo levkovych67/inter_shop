@@ -31,11 +31,9 @@ public class Category {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Product> products;
 
-
     @OneToMany
     @JoinColumn(name = "parent_category_id")
     private List<Category> subcategories;
-
 
     @ManyToOne
     @JsonBackReference

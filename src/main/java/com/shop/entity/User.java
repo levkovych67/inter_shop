@@ -26,19 +26,13 @@ public class User {
 
     private Boolean active;
 
-
     @Column(name = "first_name")
     private String firstName;
-
 
     @Column(name = "last_name")
     private String lastName;
 
-
     private String phone;
-
-    @OneToOne
-    private Address address;
 
     @JsonIgnore
     @ManyToMany

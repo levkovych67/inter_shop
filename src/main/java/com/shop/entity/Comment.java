@@ -14,7 +14,6 @@ import java.util.List;
 @Setter
 public class Comment {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +23,6 @@ public class Comment {
 
     @OneToOne
     private User user;
-
 
     public Comment() {
     }
