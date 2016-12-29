@@ -40,7 +40,7 @@
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                             <sec:authorize access="hasRole('ADMIN')">
-                                <a href="${product.id}/edit" class="btn btn-lg btn-add-to-cart"><span
+                                <a href="${product.id}/edit" class="btn btn-lg btn-success"><span
                                         class="fa fa-edit"></span> Edit
                                 </a>
                             </sec:authorize>

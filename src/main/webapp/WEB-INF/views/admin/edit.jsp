@@ -55,7 +55,7 @@
                                 </label>
                                 <br><br>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-lg btn-add-to-cart"><span
+                                    <button type="submit" class="btn btn-success"><span
                                             class="fa fa-check"></span> Submit
                                     </button>
                                     <a href="/product/${product.id}" class="btn btn-danger btn-lg"><span
