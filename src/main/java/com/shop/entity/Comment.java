@@ -1,17 +1,11 @@
 package com.shop.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
 
 @Entity
-@Getter
-@Setter
 public class Comment {
 
     @Id
@@ -32,5 +26,27 @@ public class Comment {
         this.content = content;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

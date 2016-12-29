@@ -1,14 +1,6 @@
 package com.shop.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
-
-@Getter
-@Setter
-
 public class CommentDto {
 
     private String userName;
@@ -23,4 +15,19 @@ public class CommentDto {
         this.content = content;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
