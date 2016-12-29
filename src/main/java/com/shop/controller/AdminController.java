@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -59,15 +58,16 @@ public class AdminController {
         return userOrderService.findAll();
     }
 
-    @RequestMapping(value = "/confirm-order/{id}",method = RequestMethod.PUT)
-    public @ResponseBody
-    ResponseEntity<UserOrder> confirmUserOrder(@PathVariable("id") Long userOrderId){
+    @RequestMapping(value = "/confirm-order/{id}", method = RequestMethod.PUT)
+    public
+    @ResponseBody
+    ResponseEntity<UserOrder> confirmUserOrder(@PathVariable("id") Long userOrderId) {
         userOrderService.confirmOrder(userOrderId);
         return new ResponseEntity<UserOrder>(HttpStatus.OK);
     }
 
     @RequestMapping("/categories")
-    public String categories(){
+    public String categories() {
         return "admin/categories";
     }
 
