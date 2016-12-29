@@ -15,6 +15,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -76,7 +77,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     @Override
     public User addProductToCart(Long productId, String userEmail) {
-        User user =userDao.findUserByEmail(userEmail);
+        User user = userDao.findUserByEmail(userEmail);
         List<Product> usersProducts = user.getProducts();
         usersProducts.add(productService.findById(productId));
         user.setProducts(usersProducts);
@@ -86,7 +87,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     @Override
     public List<Product> getProductsInCart(String userEmail) {
-       return userDao.findUserByEmail(userEmail).getProducts();
+        return userDao.findUserByEmail(userEmail).getProducts();
     }
 
     @Override
@@ -108,7 +109,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         userOrder.setProducts(user.getProducts());
         userOrder.setUser(user);
         Double total = 0d;
-        for (Product p: user.getProducts()) {
+        for (Product p : user.getProducts()) {
             total = total + p.getPrice();
         }
         userOrder.setTotalPrice(total);
@@ -116,6 +117,17 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         userOrderService.create(userOrder);
         user.setProducts(new ArrayList<>());
         userDao.update(user);
+    }
+
+    @Override
+    public User updateUser(User user, String userEmail) {
+        if (Objects.equals(userEmail, user.getEmail())) {
+            User deprecated = userDao.findUserByEmail(user.getEmail());
+            user.setProducts(deprecated.getProducts());
+            userDao.update(user);
+            return deprecated;
+        } else return findUserByEmail(userEmail);
+
     }
 
 

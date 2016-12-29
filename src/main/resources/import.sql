@@ -32,15 +32,13 @@ INSERT INTO inter_shop.category (id, title) VALUES (25, 'Women’s Clothing');
 INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (26, 'Outwear & Sweaters',25);
 INSERT INTO inter_shop.category (id, title,parent_category_id) VALUES (27, 'Accessories',25);
 
-INSERT INTO inter_shop.address (id, apartment_number, street, street_number, zip_code, city) VALUES (1, 36, 'Lubinska', 164, 79040, 'Lviv');
-INSERT INTO inter_shop.address (id, apartment_number, street, street_number, zip_code, city) VALUES (2, 23, 'Patona', 10, 79040, 'Kiyv');
 
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (1, TRUE, 'user@gmail.com', 'Bohdan', 'Levkovych', '1234', '+380636514491','USER', 1);
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (2, FALSE , 'user1@gmail.com', 'Andriy', 'Petrovskui', '1234', '+380504569874','USER', 2);
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (3, TRUE, 'admin@gmail.com', 'Andriy', 'Petrovskui', '1234', '+398745874495','ADMIN', 2);
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (4, TRUE, 'admin1@gmail.com', 'Andriy', 'Petrovskui', '1234', '+312365478945','ADMIN', 2);
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (5, TRUE, 'user2@gmail.com', 'Daniel', 'Loyenne', '1234', '+385201478963','USER', 1);
-INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role, address_id) VALUES (6, TRUE, 'user3@gmail.com', 'Jack', 'Santa', '1234', '+301236547896','USER', 1);
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (1, TRUE, 'user@gmail.com', 'Bohdan', 'Levkovych', '1234', '+380636514491','USER');
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (2, FALSE , 'user1@gmail.com', 'Andriy', 'Petrovskui', '1234', '+380504569874','USER');
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (3, TRUE, 'admin@gmail.com', 'Andriy', 'Petrovskui', '1234', '+398745874495','ADMIN');
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (4, TRUE, 'admin1@gmail.com', 'Andriy', 'Petrovskui', '1234', '+312365478945','ADMIN');
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (5, TRUE, 'user2@gmail.com', 'Daniel', 'Loyenne', '1234', '+385201478963','USER');
+INSERT INTO inter_shop.user (id, active, email, first_name, last_name, password, phone,role) VALUES (6, TRUE, 'user3@gmail.com', 'Jack', 'Santa', '1234', '+301236547896','USER');
 
 INSERT INTO inter_shop.product (id, description, price, title, category_id)VALUES (1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 169.99, 'Xiaomi Redmi Note 3', 2);
 INSERT INTO inter_shop.product (id, description, price, title, category_id)VALUES (2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 129.99, 'Xiaomi Mi4c 256GB', 2);

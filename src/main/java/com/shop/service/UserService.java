@@ -30,4 +30,6 @@ public interface UserService extends BaseService<User> {
     List<Product> deleteProductFromCart(Long productId, String userEmail);
 
     void confirmOrder(String userEmail);
+
+    User updateUser(User user,String userEmail);
 }

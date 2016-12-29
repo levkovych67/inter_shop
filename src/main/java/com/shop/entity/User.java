@@ -35,11 +35,10 @@ public class User {
     private String phone;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_product", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private List<Product> products;
 
-    @JsonIgnore
     @Enumerated(EnumType.STRING)
     private Role role;
 }
