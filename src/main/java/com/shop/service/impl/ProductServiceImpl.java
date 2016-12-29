@@ -49,7 +49,12 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public void deleteById(Long id) {
-        productDao.deleteById(id);
+        try{
+            productDao.deleteById(id);
+        } catch (Exception e){
+            System.out.print("Cant Delete Somebody has this product in cart");
+        }
+
     }
 
     @Override

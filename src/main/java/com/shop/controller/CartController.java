@@ -37,9 +37,9 @@ public class CartController {
     }
 
     @RequestMapping(value = "/cart/products/{productId}", method = RequestMethod.POST)
-    public  ResponseEntity<User> deleteProductFromUserCart(@PathVariable Long productId, Principal principal) {
+    public ResponseEntity deleteProductFromUserCart(@PathVariable Long productId, Principal principal) {
         userService.deleteProductFromCart(productId, principal.getName());
-        return new  ResponseEntity<User>(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")
@@ -50,8 +50,9 @@ public class CartController {
     }
 
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
-    public void confirmOrder(Principal principal) {
+    public ResponseEntity confirmOrder(Principal principal) {
         userService.confirmOrder(principal.getName());
+        return new ResponseEntity(HttpStatus.OK) ;
     }
 
 }
