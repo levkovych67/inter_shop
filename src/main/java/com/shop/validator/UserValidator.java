@@ -24,11 +24,6 @@ public class UserValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         User user = (User) o;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required");
 
         if (userService.findUserByEmail(user.getEmail()) != null) {
             errors.rejectValue("email", "this email already registered","Email");

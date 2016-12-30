@@ -13,7 +13,7 @@
     </div>
     <div class="jumbotron   alert-danger text-center" ng-show="showError">
         <span>Error occurred</span>
-        <p ng-repeat="error in errors">{{error.code}} : {{error.defaultMessage}}</p>
+        <p ng-repeat="error in errors">{{error.field}} : {{error.defaultMessage}}</p>
     </div>
     <form class="form-horizontal jumbotron white col-xs-12 ">
         <p class="text-center">Sign in</p>

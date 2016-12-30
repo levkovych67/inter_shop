@@ -4,6 +4,7 @@ package com.shop.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -13,20 +14,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Email
     @Column(unique = true)
     private String email;
 
+    @NotNull
     private String password;
 
     private Boolean active;
 
+    @NotNull
     @Column(name = "first_name")
     private String firstName;
 
+    @NotNull
     @Column(name = "last_name")
     private String lastName;
 
+    @NotNull
     private String phone;
 
     @JsonIgnore

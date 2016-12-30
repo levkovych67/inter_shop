@@ -11,6 +11,7 @@ angular.module('myApp.controllers').controller('RegisterCtrl', ['$scope', '$loca
                     $scope.userCreated = true;
                 }, function errorCallback(response) {
                     $scope.errors = response.data;
+                    console.log(response.data);
                     $scope.userCreated = false;
                     $scope.showError = true;
                 });
@@ -19,7 +20,8 @@ angular.module('myApp.controllers').controller('RegisterCtrl', ['$scope', '$loca
     };
 
     var checkFields = function () {
-        return !!($scope.firstName && $scope.lastName && $scope.phone && $scope.email && $scope.password && $scope.confirmPassword);
+        // return !!($scope.firstName && $scope.lastName && $scope.phone && $scope.email && $scope.password && $scope.confirmPassword);
+        return true;
     };
     var comparePass = function () {
         if ($scope.password != $scope.confirmPassword) {
