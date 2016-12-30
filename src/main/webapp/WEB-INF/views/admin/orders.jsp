@@ -46,7 +46,7 @@
                         <td><h4><span class="label label-danger" ng-hide="{{order.status}}">WAITING</span></h4>
                             <h4><span class="label label-info" ng-show="{{order.status}}">ACCEPTED</span></h4>
                         </td>
-                        <td><h4><span ng-click="confirmOrder(order)" ng-hide="{{order.status}}" class="label label-success">ACCEPT ORDER</span></h4>
+                        <td><h4><button ng-click="confirmOrder(order)" ng-hide="{{order.status}}" class="label label-success">ACCEPT ORDER</button></h4>
                             <h4><span   ng-show="{{order.status}}" class="label label-info">ORDER CLOSED</span></h4>
                         </td>
                     </tr>
