@@ -3,6 +3,7 @@ package com.shop.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
  public class Image {
@@ -11,6 +12,7 @@ import javax.persistence.*;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String url;
 
     public Long getId() {

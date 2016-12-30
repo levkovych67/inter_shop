@@ -13,12 +13,15 @@ public class UserOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private Date date;
 
+    @NotNull
     @ManyToMany
     @JoinTable(name = "user_order_products", joinColumns = {@JoinColumn(name = "user_order_id")}, inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private List<Product> products;
 
+    @NotNull
     @OneToOne
     private User user;
 
