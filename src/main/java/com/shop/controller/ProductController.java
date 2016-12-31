@@ -17,6 +17,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -34,6 +36,9 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
+
+    @Autowired
+    private ProductValidator productValidator;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getProduct(Model model, @PathVariable Long id) {

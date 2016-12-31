@@ -38,20 +38,20 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     @Autowired
     private CategoryService categoryService;
 
-    public List<Product> getPaginatedProductsByTitle(String title,Integer pageSize,Integer pageNumber) {
-        return productDao.getPaginatedProductsByTitle(title,  pageSize,  pageNumber);
+    public List<Product> getPaginatedProductsByTitle(String title, Integer pageSize, Integer pageNumber) {
+        return productDao.getPaginatedProductsByTitle(title, pageSize, pageNumber);
     }
 
     @Override
-    public List<Product> getPaginatedProductsByPrice(Double startPrice, Double endPrice,Integer pageSize,Integer pageNumber) {
-        return productDao.getPaginatedProductsByPrice(startPrice, endPrice,  pageSize,  pageNumber);
+    public List<Product> getPaginatedProductsByPrice(Double startPrice, Double endPrice, Integer pageSize, Integer pageNumber) {
+        return productDao.getPaginatedProductsByPrice(startPrice, endPrice, pageSize, pageNumber);
     }
 
     @Override
     public void deleteById(Long id) {
-        try{
+        try {
             productDao.deleteById(id);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.print("Cant Delete Somebody has this product in cart");
         }
 
@@ -73,7 +73,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     @Override
     public Product saveProduct(Product product, Long categoryId, MultipartFile file) throws IOException {
         Product deprecatedProduct = productDao.findById(product.getId());
-        if(file.getSize()!= 0){
+        if (file.getSize() != 0) {
             List<Image> list = transformImageToList(file);
             product.setImages(list);
         } else {
@@ -102,21 +102,21 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public List<Product> getPaginatedProducts(Integer pageSize, Integer pageNumber) {
-        return productDao.getPaginatedProducts(pageSize,pageNumber);
+        return productDao.getPaginatedProducts(pageSize, pageNumber);
     }
 
     @Override
     public List<Product> getPaginatedProductsByCategory(Long categoryId, Integer pageSize, Integer pageNumber) {
         Category category = categoryService.findById(categoryId);
         List<Product> products = category.getProducts();
-        Integer lambda = pageSize*(pageNumber-1);
-        if(lambda>products.size()-1){
+        Integer lambda = pageSize * (pageNumber - 1);
+        if (lambda > products.size() - 1) {
             return null;
         }
-        if(lambda+pageSize>products.size()-1){
-            return products.subList(lambda,products.size());
+        if (lambda + pageSize > products.size() - 1) {
+            return products.subList(lambda, products.size());
         }
-        return products.subList(lambda,lambda+pageSize);
+        return products.subList(lambda, lambda + pageSize);
     }
 
 }

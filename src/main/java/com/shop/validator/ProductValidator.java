@@ -18,8 +18,18 @@ public class ProductValidator implements Validator {
 
         Product product = (Product) o;
 
-
-
+        if (product.getTitle().isEmpty() || product.getTitle() == null) {
+            errors.rejectValue("title", "product.title", "Product title cant be empty");
+        }
+        if (product.getDescription().isEmpty() || product.getDescription() == null) {
+            errors.rejectValue("description", "product.description", "Product description cant be empty");
+        }
+        if (product.getPrice().isNaN() || product.getPrice()<=0 || product.getPrice() == null) {
+            errors.rejectValue("price", "product.price", "Product price is not valid");
+        }
+        if (product.getCategory()==null) {
+            errors.rejectValue("category", "product.category", "Product category is not valid");
+        }
 
     }
 }
