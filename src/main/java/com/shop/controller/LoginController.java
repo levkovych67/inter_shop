@@ -12,10 +12,8 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,11 +57,16 @@ public class LoginController {
     public
     @ResponseBody
     ResponseEntity registerNewUser(@RequestBody @Valid User user, BindingResult bindingResult) {
-        userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
         userService.registerNewUser(user);
         return ResponseEntity.ok().build();
+    }
+
+
+    @InitBinder
+    public void dataBinding(WebDataBinder binder) {
+        binder.addValidators(userValidator);
     }
 }
