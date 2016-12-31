@@ -53,7 +53,7 @@ public class LoginController {
         return "common/registration";
     }
 
-    @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity registerNewUser(@RequestBody @Valid User user, BindingResult bindingResult) {

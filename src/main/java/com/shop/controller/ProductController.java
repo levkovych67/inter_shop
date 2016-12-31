@@ -1,16 +1,20 @@
 package com.shop.controller;
 
 
+import com.shop.dao.impl.ProductDaoImpl;
 import com.shop.dto.CommentDto;
 import com.shop.dto.ProductDto;
 import com.shop.entity.Product;
 import com.shop.service.CategoryService;
 import com.shop.service.CommentService;
 import com.shop.service.ProductService;
+import com.shop.validator.ProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;

@@ -6,7 +6,7 @@ angular.module('myApp.controllers').controller('RegisterCtrl', ['$scope', '$loca
             if (comparePass()) {
                 $scope.passwordError = false;
                var user = buildUser();
-                $http.post('/sign-in', user).then(function successCallback(response) {
+                $http.post('/registration', user).then(function successCallback(response) {
                     $scope.showError = false;
                     $scope.userCreated = true;
                 }, function errorCallback(response) {
