@@ -28,16 +28,19 @@
                                     <label>Title</label>
                                     <form:input id="title"
                                                 cssClass="form-control" path="title"/>
+                                    <form:errors path="title"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
                                     <form:textarea id="description" rows="10"
                                                    cssClass="form-control" path="description"/>
+                                    <form:errors path="description"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>
                                     <form:input id="price" type="number"
                                                 cssClass="form-control" path="price"/>
+                                    <form:errors path="price"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sel1">Select category</label>

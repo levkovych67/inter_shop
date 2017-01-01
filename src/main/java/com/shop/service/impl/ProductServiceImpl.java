@@ -66,7 +66,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         product.setTitle(productDto.getTitle());
         product.setPrice(productDto.getPrice());
         product.setImages(list);
-        productDao.create(product);
+    productDao.create(product);
         return product;
     }
 

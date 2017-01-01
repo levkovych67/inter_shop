@@ -13,14 +13,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+
     private String title;
 
-    @NotNull
+
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @NotNull
+
     private Double price;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)

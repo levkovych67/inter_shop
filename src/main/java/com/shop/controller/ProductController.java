@@ -14,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -76,10 +77,19 @@ public class ProductController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createProduct(MultipartFile image, ProductDto productDto) throws IOException {
-        productService.saveProductDto(productDto, image);
-        return "redirect:/";
+    public String createProduct(MultipartFile image, Model model, @ModelAttribute(name = "product") @Valid ProductDto product, BindingResult bindingResult) throws IOException {
+       productValidator.validate(product,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("categories", categoryService.findAll());
+            return "admin/create";
+        } else {
+
+            productService.saveProductDto(product,image);
+            return "redirect:/";
+        }
+
     }
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String createProduct(Model model) {

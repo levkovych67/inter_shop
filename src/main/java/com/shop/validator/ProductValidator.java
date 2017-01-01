@@ -1,5 +1,6 @@
 package com.shop.validator;
 
+import com.shop.dto.ProductDto;
 import com.shop.entity.Product;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -10,13 +11,13 @@ public class ProductValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return Product.class.equals(aClass);
+        return ProductDto.class.equals(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
 
-        Product product = (Product) o;
+        ProductDto product = (ProductDto) o;
 
         if (product.getTitle().isEmpty() || product.getTitle() == null) {
             errors.rejectValue("title", "product.title", "Product title cant be empty");
@@ -24,10 +25,10 @@ public class ProductValidator implements Validator {
         if (product.getDescription().isEmpty() || product.getDescription() == null) {
             errors.rejectValue("description", "product.description", "Product description cant be empty");
         }
-        if (product.getPrice().isNaN() || product.getPrice()<=0 || product.getPrice() == null) {
+        if (product.getPrice() == null || product.getPrice()<=0) {
             errors.rejectValue("price", "product.price", "Product price is not valid");
         }
-        if (product.getCategory()==null) {
+        if (product.getCategoryId()==null) {
             errors.rejectValue("category", "product.category", "Product category is not valid");
         }
 
