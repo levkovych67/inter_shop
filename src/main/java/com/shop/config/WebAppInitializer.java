@@ -2,7 +2,9 @@ package com.shop.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-    public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+import javax.servlet.ServletRegistration;
+
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{AppConfig.class};
@@ -16,5 +18,10 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
 }
