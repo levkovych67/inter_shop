@@ -9,6 +9,7 @@ import com.shop.validator.CategoryValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,7 +38,7 @@ public class CategoryController {
         return "index";
     }
 
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/create-category",method = RequestMethod.POST)
     public @ResponseBody
     ResponseEntity createCategory(@RequestBody CategoryDto categoryDto, BindingResult bindingResult){
@@ -51,6 +52,7 @@ public class CategoryController {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/delete-category/{id}",method = RequestMethod.DELETE)
     public @ResponseBody
     ResponseEntity<Category> deleteCategory(@PathVariable Long id){

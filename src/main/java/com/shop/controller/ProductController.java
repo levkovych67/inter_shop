@@ -68,6 +68,7 @@ public class ProductController {
         return commentDto;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
     public String getProduct(@PathVariable Long id, Model model) {
         productService.deleteById(id);
@@ -98,6 +99,7 @@ public class ProductController {
         return "admin/create";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String editProduct(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.findById(id));
@@ -105,6 +107,7 @@ public class ProductController {
         return "admin/edit";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
     public String editProduct(Product product, @RequestParam Long categoryId, MultipartFile file) throws IOException {
         productService.saveProduct(product, categoryId, file);

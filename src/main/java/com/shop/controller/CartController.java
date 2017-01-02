@@ -18,6 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user/")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class CartController {
 
     @Autowired
@@ -42,7 +43,7 @@ public class CartController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+
     @RequestMapping(value = "/add-to-cart/{productId}", method = RequestMethod.POST)
     public ResponseEntity<User> addToCart(@PathVariable Long productId, Principal principal) {
         userService.addProductToCart(productId, principal.getName());

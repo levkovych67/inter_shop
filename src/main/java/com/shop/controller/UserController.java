@@ -18,6 +18,7 @@ import java.security.Principal;
 
 @Controller
 @RequestMapping("/user")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class UserController {
 
 
@@ -34,7 +35,7 @@ public class UserController {
     }
 
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+
     @RequestMapping("/get-user")
     public
     @ResponseBody
@@ -42,12 +43,10 @@ public class UserController {
         return userService.findUserByEmail(principal.getName());
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping("/update-user")
     public
     @ResponseBody
     ResponseEntity updateUser(@RequestBody User user,Principal principal) {
-
         userService.updateUser(user,principal.getName());
         return ResponseEntity.ok().build();
     }
