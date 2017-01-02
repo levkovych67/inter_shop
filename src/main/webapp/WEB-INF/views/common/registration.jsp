@@ -38,7 +38,7 @@
         <div class="form-group">
             <label class="control-label">Phone</label>
             <div>
-                <input type="text" ng-model="phone" placeholder="Phone Name" class="form-control" required="">
+                <input type="text" ng-model="phone" placeholder="Phone" class="form-control" required="">
             </div>
         </div>
         <div class="form-group">
