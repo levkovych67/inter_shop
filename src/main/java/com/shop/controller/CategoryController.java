@@ -40,4 +40,11 @@ public class CategoryController {
         categoryService.createFromCategoryDto(categoryDto);
         return new ResponseEntity<Category>(HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/delete-category/{id}",method = RequestMethod.DELETE)
+    public @ResponseBody
+    ResponseEntity<Category> deleteCategory(@PathVariable Long id){
+        categoryService.delete(categoryService.findById(id));
+        return new ResponseEntity<Category>(HttpStatus.OK);
+    }
 }

@@ -6,8 +6,13 @@
 <br>
 
 <script type="text/ng-template" id="tree_view">
-    <span class="btn-square" ng-click="startingChild(category)"><i class="fa plus-icon fa-plus-circle"></i>
-    </span> <span>{{ category.title }}</span>
+    <span class="btn-square" ng-click="startingChild(category)">
+        <i class="fa plus-icon fa-plus-circle"></i>
+    </span>
+    <span class="btn-square" ng-click="delete(category)">
+        <i class="fa minus-icon fa-minus-circle"></i>
+    </span>
+    <span>{{ category.title }}</span>
     <ul ng-if="category.subcategories">
         <span ng-repeat="category in category.subcategories" ng-include="'tree_view'">
         </span>

@@ -44,4 +44,10 @@ angular.module('myApp.controllers').controller('AdminCategoryCtrl', ['$scope', '
         $scope.rootCategory = false;
         $scope.showCreated();
     }
+
+    $scope.delete = function (category) {
+        $http.delete('/delete-category/' + category.id).then(function () {
+            getAllCategories();
+        })
+    }
 }]);

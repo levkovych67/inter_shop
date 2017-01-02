@@ -15,7 +15,9 @@ html, body {
 .header-name:hover {
     color: #e0e0e0;
 }
-
+.minus-icon{
+    color: red;
+}
 .nav ul {
     font-size: 18px;
     list-style: none;
