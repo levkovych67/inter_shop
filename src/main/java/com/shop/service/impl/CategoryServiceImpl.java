@@ -35,14 +35,15 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     }
 
     @Override
-    public void createFromCategoryDto(CategoryDto categoryDto) {
+    public Category createFromCategoryDto(CategoryDto categoryDto) {
         Category category = new Category();
         category.setTitle(categoryDto.getTitle());
         if(categoryDto.getParentCategoryId()!=null) {
             Category parentCategory = categoryDao.findById(categoryDto.getParentCategoryId());
             category.setParentCategory(parentCategory);
         }
-        categoryDao.create(category);
+        return category;
+
     }
 
 

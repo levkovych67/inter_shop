@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 
-public interface CategoryService extends BaseService<Category>{
+public interface CategoryService extends BaseService<Category> {
 
     List<Category> getCategoryTree();
 
 
     List<Product> getProductsByCategory(Long id);
 
-void createFromCategoryDto(CategoryDto categoryDto);
+    Category createFromCategoryDto(CategoryDto categoryDto);
 }
