@@ -25,6 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = null;
         if (userService.findUserByEmail(email) != null && userService.findUserByEmail(email).getActive().equals(Boolean.TRUE)) {
             user = userService.findUserByEmail(email);
+        } else {
+            throw new UsernameNotFoundException("user is not found");
         }
         Set<GrantedAuthority> roles = new HashSet<>();
         roles.add(new SimpleGrantedAuthority(user.getRole().getAuthority()));
