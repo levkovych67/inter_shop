@@ -25,7 +25,7 @@
                 <div class="thumbnail text-center">
                     <a href="/product/{{product.id}}">
                         <div class="image">
-                            <img  ng-src="{{product.images[0].url}}" class="img-responsive" alt="">
+                            <img  ng-src="{{product.images[0].url}}" class="image img-responsive" alt="">
                             <div class="text-img"><span class="prod-title">{{product.title}}</span> </div>
                         </div>
                         <span>{{product.price}}$</span>
