@@ -12,11 +12,11 @@ Set working directory to your project location.
 Set command line to "tomcat7:run".
 
 go http://localhost:8080/
-admin :
+**admin** :
 login - admin@gmail.com
 password - 1234
 
-user :
+**user** :
 login - user@gmail.com
 password - 1234
 
