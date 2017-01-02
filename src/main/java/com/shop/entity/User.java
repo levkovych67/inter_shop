@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -33,6 +34,7 @@ public class User {
     private String lastName;
 
     @NotNull
+    @Pattern(regexp="(^$|[0-9]{10})", message = "phone number needs to have 10 digits")
     private String phone;
 
     @JsonIgnore
