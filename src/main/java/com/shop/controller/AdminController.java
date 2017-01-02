@@ -37,7 +37,6 @@ public class AdminController {
     @RequestMapping("/users.json")
     public @ResponseBody
     List<User> getUsers(){
-
         return userService.getUsers();
     }
 
@@ -46,7 +45,7 @@ public class AdminController {
         return "admin/orders";
     }
 
-    @RequestMapping(value = "/enable-disable-user/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/enable-disable-user/{id}", method = RequestMethod.PUT)
     public String disableUser(@PathVariable Long id) {
         userService.disableOrEnable(id);
         return "redirect:/admin/users";

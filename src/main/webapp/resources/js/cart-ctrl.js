@@ -13,7 +13,7 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
         });
     }
     $scope.deleteFromCart = function (product, index) {
-        $http.post(url + '/' + product.id).then(function (rep) {
+        $http.delete(url + '/' + product.id).then(function (rep) {
             if (product.quantity === 1) {
                 $scope.filteredProducts.splice(index, 1);
             }
@@ -68,7 +68,7 @@ angular.module('myApp.controllers').controller('CartCtrl', ['$scope', '$location
         return newArr;
     }
     $scope.addToCart = function (product) {
-        $http.get('/user/add-to-cart/'+product.id).then(function (response) {
+        $http.post('/user/add-to-cart/'+product.id).then(function (response) {
             getProducts();
         });
 

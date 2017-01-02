@@ -36,14 +36,14 @@ public class CartController {
         return userService.getProductsInCart(principal.getName());
     }
 
-    @RequestMapping(value = "/cart/products/{productId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/cart/products/{productId}", method = RequestMethod.DELETE)
     public ResponseEntity deleteProductFromUserCart(@PathVariable Long productId, Principal principal) {
         userService.deleteProductFromCart(productId, principal.getName());
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")
-    @RequestMapping(value = "/add-to-cart/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/add-to-cart/{productId}", method = RequestMethod.POST)
     public ResponseEntity<User> addToCart(@PathVariable Long productId, Principal principal) {
         userService.addProductToCart(productId, principal.getName());
         return new ResponseEntity<>(HttpStatus.OK);

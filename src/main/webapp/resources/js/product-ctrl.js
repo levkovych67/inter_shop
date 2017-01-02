@@ -18,7 +18,7 @@ angular.module('myApp.controllers').controller('ProductCtrl', ['$scope', '$locat
         sendComment();
     };
     $scope.addToCart = function (id) {
-        $http.get('/user/add-to-cart/'+id).then(function (response) {
+        $http.post('/user/add-to-cart/'+id).then(function (response) {
         });
 
     }

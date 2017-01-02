@@ -9,7 +9,7 @@ angular.module('myApp.controllers').controller('AdminUsrListCtrl', ['$scope', '$
         });
     }
     $scope.disableOrEnable = function (user) {
-        $http.get('/admin/enable-disable-user/' + user.id).then(function () {
+        $http.put('/admin/enable-disable-user/' + user.id).then(function () {
             getUsers();
         })
     };
