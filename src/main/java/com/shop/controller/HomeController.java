@@ -33,7 +33,10 @@ public class HomeController {
         return "index";
     }
 
-
+    @RequestMapping("/404")
+    public String pageNotFound() {
+        return "common/404";
+    }
 
 
 }

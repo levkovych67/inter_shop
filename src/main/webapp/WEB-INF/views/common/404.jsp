@@ -1,16 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: fnx_000
-  Date: 18.12.2016
-  Time: 22:59
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<jsp:include page="../fragments/header.jsp"/>
+<div class="container col-xs-4 col-xs-offset-4">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron">
+        <p class="text-center">Page not found</p>
+    </div>
+
+</div>
+<jsp:include page="../fragments/footer.jsp"/>
+<jsp:include page="../fragments/scripts.jsp"/>
+
 
 </body>
+
 </html>

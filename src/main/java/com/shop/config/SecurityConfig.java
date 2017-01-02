@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**"); // #3
+                .antMatchers("/resources/**");
     }
 
 
@@ -57,6 +57,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
+                .and()
+                .exceptionHandling().accessDeniedPage("/404")
                 .and()
                 .csrf().disable()
                 .formLogin()
