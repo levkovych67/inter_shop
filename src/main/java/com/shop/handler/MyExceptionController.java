@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class MyExceptionController {
     @ExceptionHandler(NoHandlerFoundException.class)
-    public String handleError404(HttpServletRequest request, Exception e)   {
+    public String handleError404()   {
         return "common/404";
     }
 }
