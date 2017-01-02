@@ -6,6 +6,7 @@ jdbc.username = {username}
 jdbc.password = {password}
 
 ## Deployment
+Set JDK to 1.8
 Set run configuration to Maven, set command line to "tomcat7:run", example for Intellij IDEA:
 Go to “Run” menu and click “Edit Configurations…”, click “+” icon at the top left and select “Maven”
 Set working directory to your project location.
