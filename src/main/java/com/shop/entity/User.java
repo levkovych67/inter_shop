@@ -34,7 +34,7 @@ public class User {
     private String lastName;
 
     @NotNull
-    @Pattern(regexp="(^[0-9\\-\\+]{5,15}$)", message = "Phone number needs to have from 5 to 10  digits")
+    @Pattern(regexp="(^[0-9\\-\\ \\?+]{5,15}$)", message = "Phone number needs to have from 5 to 10  digits")
     private String phone;
 
     @JsonIgnore
