@@ -33,7 +33,7 @@ public class UserOrderServiceImpl extends BaseServiceImpl<UserOrder> implements 
         User user = userService.findUserByEmail(userOrder.getUser().getEmail());
         Message message = new Message();
         String messageContent = "Dear " + user.getFirstName() + " " + user.getLastName() + ", your order for the purchase of " + userOrder.getProducts().toString().replace("[", "").replace("]", "")
-                + "made " + userOrder.getDate() + " was accepted. Our manager will call you to discuss details.";
+                + " made " + userOrder.getDate() + " was accepted. Our manager will call you to discuss details.";
         message.setDate(new Date(Calendar.getInstance().getTime().getTime()));
         message.setMessage(messageContent);
         message.setUser(user);

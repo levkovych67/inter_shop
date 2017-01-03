@@ -22,6 +22,7 @@ public class Message {
     private Date date;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user;
 
