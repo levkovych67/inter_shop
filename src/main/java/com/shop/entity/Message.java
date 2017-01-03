@@ -26,6 +26,16 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User user;
 
+    private Boolean isRead;
+
+    public Boolean getRead() {
+        return isRead;
+    }
+
+    public void setRead(Boolean read) {
+        isRead = read;
+    }
+
     public Long getId() {
         return id;
     }

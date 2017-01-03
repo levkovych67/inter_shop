@@ -37,6 +37,7 @@ public class UserOrderServiceImpl extends BaseServiceImpl<UserOrder> implements 
         message.setDate(new Date(Calendar.getInstance().getTime().getTime()));
         message.setMessage(messageContent);
         message.setUser(user);
+        message.setRead(Boolean.FALSE);
         messageService.create(message);
         userOrderDao.update(userOrder);
         return userOrder;
