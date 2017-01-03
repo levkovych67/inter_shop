@@ -13,6 +13,7 @@
         </div>
         <br>
         <div class="panel-body ">
+            <p class="text-center" ng-show="messages.length==0">You have no messages</p>
             <div class="media" ng-repeat="message in messages">
                 <a class="media-left" href="#">
                     <img class="media-object" src="/resources/img/user.png" alt="Generic placeholder image">

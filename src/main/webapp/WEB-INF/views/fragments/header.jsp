@@ -42,10 +42,10 @@
                         <ul>
                             <sec:authorize access="isAuthenticated()">
                                 <sec:authorize access="hasRole('USER')">
+                                    <li class="about"><a href="/user/messages"><i class="fa fa-envelope "></i> </a>
+                                    </li>
                                     <li class=""><a href="/user/settings"><i class="fa fa-user  "></i></a></li>
                                     <li class="about"><a href="/user/cart"><i class="fa fa-shopping-cart  "></i> </a>
-                                    </li>
-                                    <li class="about"><a href="/user/messages"><i class="fa fa-envelope "></i> </a>
                                     </li>
                                     <li class="about"><a href="/logout"><i class="fa fa-sign-out  "></i></a></li>
                                 </sec:authorize>
