@@ -3,6 +3,7 @@ package com.shop.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -34,7 +35,7 @@ public class User {
     private String lastName;
 
     @NotNull
-    @Pattern(regexp="(^[0-9\\-\\ \\?+]{5,15}$)", message = "Phone number needs to have from 5 to 10  digits")
+    @Pattern(regexp = "(^[0-9\\-\\ \\?+]{5,15}$)", message = "Phone number needs to have from 5 to 10  digits")
     private String phone;
 
     @JsonIgnore
@@ -42,8 +43,20 @@ public class User {
     @JoinTable(name = "user_product", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "product_id")})
     private List<Product> products;
 
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Message> messages;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 
     public Long getId() {
         return id;
