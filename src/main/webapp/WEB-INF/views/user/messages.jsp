@@ -5,8 +5,6 @@
 <jsp:include page="../fragments/header.jsp"/>
 <div class="container">
     <br>
-    <br>
-    <br>
     <div class=" panel panel-primary" ng-controller="MessageCtrl">
         <div class="panel-heading">
             <h3 class="panel-title">Messages</h3>
